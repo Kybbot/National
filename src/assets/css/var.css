@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+:root {
+	--bg-color: hsl(0, 0%, 100%);
+	--secondary-bg: hsl(0, 0%, 95%);
+
+	--main-text: hsl(0, 0%, 0%);
+	--grey1-text: hsl(0, 0%, 59%);
+	--grey2-text: hsl(0, 0%, 73%);
+	--white-text: hsl(0, 0%, 100%);
+
+	--accent: hsl(354, 64%, 49%);
+}
