@@ -1,0 +1,16 @@
+.preloader {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: var(--accent);
+}
+
+@media screen and (min-width: 1440px) {
+	.preloader__img {
+		width: 519px;
+		height: 81px;
+	}
+}
