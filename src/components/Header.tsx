@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 
 export const Header: FC = () => {
@@ -7,6 +7,14 @@ export const Header: FC = () => {
 	const toggleMobileNav = () => {
 		setOpen((prev) => !prev);
 	};
+
+	useEffect(() => {
+		if (isOpen) {
+			document.body.classList.add("body--hidden");
+		} else {
+			document.body.classList.remove("body--hidden");
+		}
+	}, [isOpen]);
 
 	return (
 		<header className="header">
