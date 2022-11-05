@@ -17,3 +17,13 @@
 	background-color: var(--accent);
 	cursor: pointer;
 }
+
+@media screen and (min-width: 1024px) {
+	.btn {
+		width: 330px;
+		height: 60px;
+		font-size: 24px;
+		line-height: 29px;
+		border-radius: 20px;
+	}
+}
