@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import { About, Banner, Header, Services } from "../components";
+import { About, Banner, Header, Partners, Services } from "../components";
 
 const Home: NextPage = () => {
 	return (
@@ -10,6 +10,7 @@ const Home: NextPage = () => {
 				<Banner />
 				<About />
 				<Services />
+				<Partners />
 			</main>
 		</>
 	);
