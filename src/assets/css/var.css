@@ -20,3 +20,7 @@ body {
 
 	--accent: hsl(354, 64%, 49%);
 }
+
+.accent-text {
+	color: var(--accent);
+}

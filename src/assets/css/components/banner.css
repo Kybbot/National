@@ -1,0 +1,96 @@
+.banner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	background-color: var(--bg-color);
+	background-image: url("/img/main-bg.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow-x: hidden;
+	z-index: 1;
+}
+
+.banner__img {
+	display: block;
+	margin: 0 auto;
+}
+
+.banner__title {
+	font-family: "Days One", sans-serif;
+	font-size: 24px;
+	line-height: 30px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 32px auto 98px auto;
+	max-width: 343px;
+}
+
+.banner__dec {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	font-size: 0;
+	line-height: 0;
+	z-index: 1;
+}
+
+.banner__svg {
+	width: 100%;
+	height: auto;
+}
+
+.banner__svg--2 {
+	display: none;
+}
+
+.banner__gradient {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+	z-index: -1;
+}
+
+@media screen and (min-width: 1024px) {
+	.banner__img {
+		width: 834px;
+		height: 130px;
+	}
+
+	.banner__title {
+		font-size: 32px;
+		line-height: 40px;
+		margin: 28px auto 0 auto;
+		max-width: 620px;
+	}
+
+	.banner__btn {
+		display: none;
+	}
+
+	.banner__dec {
+		width: 2248px;
+	}
+
+	.banner__svg {
+		width: 2248px;
+		height: 174px;
+	}
+
+	.banner__svg--1 {
+		display: none;
+	}
+
+	.banner__svg--2 {
+		display: block;
+		transform: translateX(-190px);
+	}
+}

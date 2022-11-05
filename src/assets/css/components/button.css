@@ -1,0 +1,19 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 280px;
+	height: 48px;
+	font-family: "Exo 2", sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+	text-align: center;
+	color: var(--white-text);
+	padding: 0;
+	border-style: none;
+	border-radius: 15px;
+	margin: 0 auto;
+	background-color: var(--accent);
+	cursor: pointer;
+}
