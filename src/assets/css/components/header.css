@@ -1,5 +1,13 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	overflow-x: hidden;
+}
+
 .header__top {
 	position: relative;
+	width: 100%;
 	height: 20px;
 	background-color: var(--accent);
 	border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
@@ -16,8 +24,31 @@
 }
 
 .header__main {
+	width: 100%;
 	padding: 24px 0 25px 0;
 	background-color: var(--accent);
+}
+
+.header__mobile {
+	position: fixed;
+	top: 90px;
+	right: 0;
+	max-width: 310px;
+	width: 100%;
+	height: fit-content;
+	background-color: var(--accent);
+	border-radius: 0px 0px 0px 30px;
+	transform: translateX(100%);
+	transition: transform 0.5s ease;
+}
+
+.header__mobile--open {
+	transform: translateX(0%);
+}
+
+.header__mobile-nav {
+	display: block;
+	flex-direction: column;
 }
 
 .header__section {
@@ -43,7 +74,7 @@
 	display: none;
 }
 
-.headerr__list {
+.header__list {
 	display: flex;
 	align-items: center;
 	gap: 25px;
@@ -52,10 +83,19 @@
 	list-style-type: none;
 }
 
+.header__mobile-list {
+	display: flex;
+	flex-direction: column;
+	gap: 39px;
+	margin: 0 0 190px 0;
+	padding: 34px 0 0 39px;
+	list-style-type: none;
+}
+
 .header__link {
 	font-family: "Days One", sans-serif;
-	font-size: 18px;
-	line-height: 23px;
+	font-size: 16px;
+	line-height: 20px;
 	color: var(--white-text);
 	text-decoration: none;
 }
@@ -72,6 +112,13 @@
 	cursor: pointer;
 }
 
+.header__socials {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 25px 19px 19px;
+}
+
 @media screen and (min-width: 1024px) {
 	.header__top {
 		display: none;
@@ -81,9 +128,13 @@
 		padding: 37px 0 42px 0;
 	}
 
+	.header__mobile {
+		display: none;
+	}
+
 	.header__section {
 		justify-content: flex-start;
-		gap: 28px;
+		gap: 57px;
 	}
 
 	.header__logo {
@@ -94,6 +145,16 @@
 	.header__nav,
 	.header__lng {
 		display: block;
+	}
+
+	.header__list,
+	.header__wrapper {
+		gap: 70px;
+	}
+
+	.header__link {
+		font-size: 18px;
+		line-height: 23px;
 	}
 
 	.header__btn {
