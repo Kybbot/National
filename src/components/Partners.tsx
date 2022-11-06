@@ -8,43 +8,114 @@ export const Partners: FC = () => {
 				<h2 className="partners__title">Партнери</h2>
 				<div className="partners__container">
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="89" height="17" src="/img/partners/borjomi.png" alt="Borjomi" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="39"
+							src="/img/partners/borjomi.png"
+							alt="Borjomi"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
-							width="89"
-							height="27"
+							width="211"
+							height="65"
 							src="/img/partners/coagulant.png"
 							alt="Coa Gulant"
+							quality="100"
 						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="99" height="49" src="/img/partners/pripravka.png" alt="Pripravka" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="104"
+							src="/img/partners/pripravka.png"
+							alt="Pripravka"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="89" height="31" src="/img/partners/metro.png" alt="Metro" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="73"
+							src="/img/partners/metro.png"
+							alt="Metro"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="90" height="34" src="/img/partners/fozzy.png" alt="Fozzy" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="80"
+							src="/img/partners/fozzy.png"
+							alt="Fozzy"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="89" height="32" src="/img/partners/atb.png" alt="Atb" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="76"
+							src="/img/partners/atb.png"
+							alt="Atb"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="83" height="70" src="/img/partners/neftek.png" alt="Neftek" />
+						<Image
+							className="pathners__img"
+							width="207"
+							height="178"
+							src="/img/partners/neftek.png"
+							alt="Neftek"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="100" height="71" src="/img/partners/morepiva.png" alt="More piva" />
+						<Image
+							className="pathners__img"
+							width="251"
+							height="178"
+							src="/img/partners/morepiva.png"
+							alt="More piva"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="74" height="78" src="/img/partners/wog.png" alt="Wog" />
+						<Image
+							className="pathners__img"
+							width="170"
+							height="178"
+							src="/img/partners/wog.png"
+							alt="Wog"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="94" height="56" src="/img/partners/shedro.png" alt="Shedro" />
+						<Image
+							className="pathners__img"
+							width="211"
+							height="127"
+							src="/img/partners/shedro.png"
+							alt="Shedro"
+							quality="100"
+						/>
 					</div>
 					<div className="parthners__wrapper">
-						<Image className="pathners__img" width="66" height="62" src="/img/partners/blackfox.png" alt="Black fox" />
+						<Image
+							className="pathners__img"
+							width="148"
+							height="140"
+							src="/img/partners/blackfox.png"
+							alt="Black fox"
+							quality="100"
+						/>
 					</div>
 				</div>
 			</div>
