@@ -7,3 +7,5 @@ export * from "./Services";
 export * from "./Partners";
 export * from "./Blog";
 export * from "./Footer";
+export * from "./Modal";
+export * from "./ContactForm";

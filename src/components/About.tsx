@@ -1,7 +1,7 @@
+import React, { FC } from "react";
 import Image from "next/image";
-import React from "react";
 
-export const About = () => {
+export const About: FC = () => {
 	return (
 		<section className="about">
 			<div className="container">

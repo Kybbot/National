@@ -108,7 +108,7 @@
 	margin: 0;
 }
 
-.footer__address > div > span {
+.footer__address > span > span {
 	display: block;
 }
 
@@ -198,7 +198,7 @@
 	.footer__addresses {
 		position: relative;
 		padding: 12px 0 12px 36px;
-		border: 2px solid var(--bg-color);
+		border: 2px solid var(--accent);
 		border-radius: 20px;
 	}
 

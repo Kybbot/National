@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React, { FC } from "react";
+import Image from "next/image";
 
 export const Partners: FC = () => {
 	return (

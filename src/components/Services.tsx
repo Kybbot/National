@@ -1,8 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const Services: FC = () => {
+type ServicesProps = {
+	openModal: (openBtnRef: RefObject<HTMLButtonElement>) => void;
+};
+
+export const Services: FC<ServicesProps> = ({ openModal }) => {
+	const btnRef = useRef<HTMLButtonElement>(null);
+
 	return (
 		<section className="services">
 			<div className="container">
@@ -113,7 +119,7 @@ export const Services: FC = () => {
 						</Link>
 					</div>
 				</div>
-				<button className="btn services__btn" type="button">
+				<button ref={btnRef} className="btn services__btn" type="button" onClick={() => openModal(btnRef)}>
 					Звʼязатись
 				</button>
 			</div>

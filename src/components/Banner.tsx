@@ -1,7 +1,13 @@
+import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
-import React, { FC } from "react";
 
-export const Banner: FC = () => {
+type BannerProps = {
+	openModal: (openBtnRef: RefObject<HTMLButtonElement> | RefObject<HTMLInputElement>) => void;
+};
+
+export const Banner: FC<BannerProps> = ({ openModal }) => {
+	const btnRef = useRef<HTMLButtonElement>(null);
+
 	return (
 		<section className="banner">
 			<div className="container">
@@ -10,7 +16,7 @@ export const Banner: FC = () => {
 					<h1 className="banner__title">
 						Ми надаємо найкращі умови <span className="accent-text">для реалізації Ваших продуктів!</span>
 					</h1>
-					<button className="btn banner__btn" type="button">
+					<button className="btn banner__btn" type="button" onClick={() => openModal(btnRef)}>
 						Звʼязатись
 					</button>
 				</div>

@@ -1,7 +1,13 @@
+import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
-import React, { FC } from "react";
 
-export const Footer: FC = () => {
+type FooterProps = {
+	openModal: (openBtnRef: RefObject<HTMLButtonElement> | RefObject<HTMLInputElement>) => void;
+};
+
+export const Footer: FC<FooterProps> = ({ openModal }) => {
+	const btnRef = useRef<HTMLButtonElement>(null);
+
 	return (
 		<>
 			<footer className="footer">
@@ -50,7 +56,9 @@ export const Footer: FC = () => {
 										</a>
 									</li>
 								</ul>
-								<button className="footer__btn">Зв’язатись</button>
+								<button ref={btnRef} className="footer__btn" type="button" onClick={() => openModal(btnRef)}>
+									Зв’язатись
+								</button>
 								<hr className="footer__hr" />
 							</div>
 							<div className="footer__bottom">
@@ -94,11 +102,11 @@ export const Footer: FC = () => {
 												width="29"
 												height="29"
 											/>
-											<div>
+											<span>
 												<span>Юридична адреса:</span>
 												<span>Вул. Магдебурзького права, 2,</span>
 												<span>м.Дніпро, Україна, 49000</span>
-											</div>
+											</span>
 										</p>
 										<p className="footer__address">
 											<Image
@@ -108,11 +116,11 @@ export const Footer: FC = () => {
 												width="29"
 												height="29"
 											/>
-											<div>
+											<span>
 												<span>Адреса потужностей (об’єкта)</span>
 												<span>Виробництва: вул.Юдіна 6,</span>
 												<span>м.Дніпро, Україна, 49035.</span>
-											</div>
+											</span>
 										</p>
 									</div>
 								</div>

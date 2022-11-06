@@ -1,18 +1,25 @@
 import type { NextPage } from "next";
 
-import { About, Banner, Blog, Footer, Header, Partners, Services } from "../components";
+import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services } from "../components";
+
+import { useModal } from "../hooks/useModal";
 
 const Home: NextPage = () => {
+	const { isActive, closeModal, openModal } = useModal();
+
 	return (
 		<>
 			<Header />
 			<main>
-				<Banner />
+				<Modal overlay active={isActive} closeModal={closeModal}>
+					<ContactForm active={isActive} closeModal={closeModal} />
+				</Modal>
+				<Banner openModal={openModal} />
 				<About />
-				<Services />
+				<Services openModal={openModal} />
 				<Partners />
 				<Blog />
-				<Footer />
+				<Footer openModal={openModal} />
 			</main>
 		</>
 	);
