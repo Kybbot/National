@@ -198,7 +198,7 @@
 	.footer__addresses {
 		position: relative;
 		padding: 12px 0 12px 36px;
-		border: 2px solid var(--accent);
+		border: 2px solid var(--white-text);
 		border-radius: 20px;
 	}
 
