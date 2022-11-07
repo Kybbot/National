@@ -58,14 +58,7 @@ export const Header: FC = () => {
 							</button>
 						</div>
 						<button type="button" className="header__btn" aria-label="Open menu" onClick={toggleMobileNav}>
-							<Image
-								src="/img/svg/burger.svg"
-								alt="National"
-								className="header__logo"
-								width="25"
-								height="19"
-								aria-hidden="true"
-							/>
+							<Image src="/img/svg/burger.svg" alt="National" width="25" height="19" aria-hidden="true" />
 						</button>
 					</div>
 				</div>
