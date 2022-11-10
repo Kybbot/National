@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export const About: FC = () => {
 	return (
-		<section className="about">
-			<div className="container">
+		<>
+			<section className="about">
 				<div className="about__container">
 					<div className="about__img">
 						<Image src="/img/food.png" alt="Company Food" fill />
@@ -23,11 +23,13 @@ export const About: FC = () => {
 						</p>
 					</div>
 				</div>
+			</section>
+			<div className="container">
 				<h2 className="about__subtitle">
 					Маючи усі умови і дозволи у сфері виробництва напоїв та продуктів харчування, ми надаємо найкращі умови{" "}
 					<span className="accent-text">для реалізації Ваших ідей!</span>
 				</h2>
 			</div>
-		</section>
+		</>
 	);
 };

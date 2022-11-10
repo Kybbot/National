@@ -1,5 +1,11 @@
+.about {
+	position: relative;
+}
+
 .about__container {
-	margin: 20px 0 87px 0;
+	width: 100%;
+	margin: 20px auto 87px auto;
+	padding: 0 16px;
 }
 
 .about__img {
@@ -40,17 +46,34 @@
 	margin: 0;
 }
 
-@media screen and (min-width: 420px) {
-	.about__title {
-		font-family: "Days One", sans-serif;
-		font-size: 40px;
-		line-height: 46px;
-	}
-}
-
 @media screen and (min-width: 1024px) {
+	.about::before {
+		position: absolute;
+		content: "";
+		width: 49%;
+		height: 75%;
+		top: 0;
+		left: 0;
+		border-bottom-right-radius: 50px;
+		background-color: var(--accent);
+		z-index: -1;
+	}
+
+	.about::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 29%;
+		top: 0;
+		left: 0;
+		background-color: var(--accent);
+		z-index: -1;
+	}
+
 	.about__container {
-		margin: 20px 0 57px 0;
+		max-width: 1024px;
+		padding: 0;
+		margin: 20px auto 57px auto;
 	}
 
 	.about__container {
@@ -72,6 +95,16 @@
 		object-fit: contain;
 	}
 
+	.about__title {
+		text-align: left;
+		color: var(--white-text);
+		margin: 25px 0 30px 0;
+	}
+
+	.about__info {
+		padding: 20px 16px 0 0;
+	}
+
 	.about__subtitle {
 		padding: 43px 33px;
 		border: 4px solid var(--accent);
@@ -82,12 +115,32 @@
 }
 
 @media screen and (min-width: 1280px) {
+	.about__container {
+		max-width: 1280px;
+	}
+
+	.about__img {
+		aspect-ratio: 4 / 3;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.about::before {
+		width: 48%;
+	}
+
+	.about__container {
+		max-width: 1400px;
+	}
+
+	.about__img {
+		aspect-ratio: auto;
+	}
+
 	.about__title {
 		font-size: 48px;
 		line-height: 53px;
-		margin: 40px auto 30px auto;
-		text-align: left;
-		max-width: none;
+		margin: 40px 0 30px 0;
 	}
 
 	.about__text,
