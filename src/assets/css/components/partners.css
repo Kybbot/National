@@ -43,8 +43,8 @@
 	transition: filter 0.3s ease;
 }
 
-.pathners__img:hover {
-	filter: grayscale(0%);
+.parthners__wrapper > .pathners__img:hover {
+	filter: grayscale(0%) contrast(100%);
 }
 
 .parthners__wrapper:nth-child(1) > img {
@@ -89,6 +89,7 @@
 
 .parthners__wrapper:nth-child(11) > img {
 	max-width: 148px;
+	filter: grayscale(0%) contrast(20%);
 }
 
 @media screen and (min-width: 768px) {
