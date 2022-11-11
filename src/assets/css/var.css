@@ -11,9 +11,10 @@ body {
 
 :root {
 	--bg-color: hsl(0, 0%, 100%);
-	--secondary-bg: hsl(0, 0%, 95%);
+	--secondary-bg: #f1f1f1;
 
 	--main-text: hsl(0, 0%, 0%);
+	--secondary-text: hsl(0, 0%, 33%);
 	--grey1-text: hsl(0, 0%, 59%);
 	--grey2-text: hsl(0, 0%, 73%);
 	--white-text: hsl(0, 0%, 100%);

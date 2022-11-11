@@ -181,7 +181,7 @@
 	.contactForm__container {
 		display: grid;
 		grid-template-columns: 53% 47%;
-		background-color: var(--white-text);
+		background-color: var(--bg-color);
 		border-radius: 20px;
 		max-width: none;
 		margin: 0;

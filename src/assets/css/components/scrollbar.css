@@ -1,0 +1,27 @@
+.scrollbar {
+	scrollbar-color: #d2d3d7 #ffffff;
+	scrollbar-width: thin;
+}
+
+.scrollbar:hover {
+	scrollbar-color: #a5a7af #ffffff;
+}
+
+.scrollbar::-webkit-scrollbar {
+	height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+	border-radius: 10px;
+	border: 1px solid #d2d3d7;
+	background-color: #ffffff;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #d2d3d7;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+	background-color: #a5a7af;
+}

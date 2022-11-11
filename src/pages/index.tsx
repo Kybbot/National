@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services } from "../components";
+import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services, Products } from "../components";
 
 import { useModal } from "../hooks/useModal";
 
@@ -17,6 +17,7 @@ const Home: NextPage = () => {
 				<Banner openModal={openModal} />
 				<About />
 				<Services openModal={openModal} />
+				<Products />
 				<Partners />
 				<Blog />
 				<Footer openModal={openModal} />
