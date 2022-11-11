@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import Image from "next/image";
 
 type ContactForm = {
@@ -6,19 +6,120 @@ type ContactForm = {
 	closeModal: () => void;
 };
 
+type ApiResult<T> = {
+	data: T;
+	success: true;
+};
+
+type ApiError = {
+	error: {
+		message: string;
+	};
+	success: false;
+};
+
+type ApiResponse<T> = ApiError | ApiResult<T>;
+
 export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
+	const initialState = {
+		name: "",
+		phone: "",
+		comment: "",
+	};
+
+	const [formState, setFormState] = useState(initialState);
+
+	const [loading, setLoading] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [error, setError] = useState(false);
+
+	const inputHandler = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const { name, value } = event.target;
+
+		setFormState((prevState) => ({
+			...prevState,
+			[name]: value,
+		}));
+	};
+
+	const formHandler = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		setLoading(true);
+		setError(false);
+		setSuccess(false);
+
+		const data = JSON.stringify(formState);
+
+		try {
+			const response = await fetch("/api/pageclip", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: data,
+			});
+			const result = (await response.json()) as ApiResponse<{ message: string }>;
+
+			if (!response.ok && !result.success) {
+				setLoading(false);
+				throw new Error(result.error.message);
+			}
+
+			if (result.success) {
+				setLoading(false);
+				setSuccess(true);
+				setFormState(initialState);
+				return;
+			}
+		} catch (error) {
+			setError(true);
+			setLoading(false);
+		}
+	};
+
 	return (
-		<form className={`contactForm ${active ? "contactForm--active" : ""}`}>
+		<form className={`contactForm ${active ? "contactForm--active" : ""}`} onSubmit={formHandler}>
 			<div className="container">
 				<div className="contactForm__container">
 					<div className="contactForm__wrapper">
 						<h2 className="contactForm__title">Залишити заявку</h2>
-						<input type="text" className="contactForm__input" placeholder="Прізвище Імʼя" />
-						<input type="text" className="contactForm__input" placeholder="Номер телефону" />
-						<textarea className="contactForm__textarea" placeholder="Коментар..."></textarea>
-						<button className="contactForm__btn" type="submit">
-							Надіслати
+						<input
+							type="text"
+							name="name"
+							required
+							minLength={3}
+							className="contactForm__input"
+							placeholder="Прізвище Імʼя"
+							value={formState.name}
+							onChange={inputHandler}
+						/>
+						<input
+							type="text"
+							name="phone"
+							required
+							minLength={10}
+							className="contactForm__input"
+							placeholder="Номер телефону"
+							value={formState.phone}
+							onChange={inputHandler}
+						/>
+						<textarea
+							className="contactForm__textarea"
+							name="comment"
+							placeholder="Коментар..."
+							value={formState.comment}
+							onChange={inputHandler}
+						></textarea>
+						<button
+							className="contactForm__btn"
+							type="submit"
+							disabled={success || error || !formState.name.length || !formState.phone.length}
+						>
+							Надіслати {loading && <span className="contactForm__spinner"></span>}
 						</button>
+						{error && <p className="contactForm__error">Не вдалось відправити заявку</p>}
+						{success && <p className="contactForm__error">Заявку відправлено</p>}
 					</div>
 					<div className="contactForm__contact">
 						<h2 className="contactForm__subtitle">КОНТАКТИ</h2>

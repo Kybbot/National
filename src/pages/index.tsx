@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 		<>
 			<Header />
 			<main>
-				<Modal overlay active={isActive} closeModal={closeModal}>
+				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
 					<ContactForm active={isActive} closeModal={closeModal} />
 				</Modal>
 				<Banner openModal={openModal} />

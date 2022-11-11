@@ -74,6 +74,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 8px;
 	width: 205px;
 	height: 38px;
 	background-color: var(--bg-color);
@@ -86,6 +87,29 @@
 	padding: 0;
 	margin: 0 auto;
 	cursor: pointer;
+}
+
+.contactForm__btn:disabled {
+	opacity: 0.3;
+	cursor: initial;
+}
+
+.contactForm__spinner {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	border: 3px solid var(--accent);
+	border-color: var(--accent) transparent var(--accent) transparent;
+	border-radius: 50%;
+	animation: spinner 1s linear infinite;
+}
+
+.contactForm__error {
+	text-align: center;
+	color: var(--white-text);
+	margin: 20px 0 0 0;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 .contactForm__contact {
@@ -175,6 +199,15 @@
 .contactForm__social-img {
 	width: 63px;
 	height: 63px;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @media screen and (min-width: 1208px) {
