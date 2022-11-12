@@ -1,30 +1,34 @@
 {
-  "name": "national",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "13.0.2",
-    "pageclip": "^1.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.26.0",
-    "eslint-config-next": "^13.0.2",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^15.0.0",
-    "postcss-preset-env": "^7.8.2",
-    "postcss-sort-media-queries": "^4.3.0",
-    "typescript": "^4.8.4"
-  }
+	"name": "national",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"test:chrome": "npx playwright test --headed --browser=chromium",
+		"test:firefox": "npx playwright test --headed --browser=firefox",
+		"test:safari": "npx playwright test --headed --browser=webkit"
+	},
+	"dependencies": {
+		"next": "13.0.2",
+		"pageclip": "^1.0.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.27.1",
+		"@types/node": "^18.11.9",
+		"@types/react": "^18.0.25",
+		"@types/react-dom": "^18.0.8",
+		"autoprefixer": "^10.4.13",
+		"eslint": "^8.26.0",
+		"eslint-config-next": "^13.0.2",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-import": "^15.0.0",
+		"postcss-preset-env": "^7.8.2",
+		"postcss-sort-media-queries": "^4.3.0",
+		"typescript": "^4.8.4"
+	}
 }

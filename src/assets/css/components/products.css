@@ -103,6 +103,10 @@
 	transform: rotateY(180deg);
 }
 
+.product__item:hover .product__back {
+	z-index: 101;
+}
+
 .product__front,
 .product__back {
 	border-radius: 10px;
@@ -113,9 +117,9 @@
 .product__front {
 	display: flex;
 	position: relative;
-	padding: 16px 28px 9px 4px;
+	padding: 16px 23px 9px 4px;
 	background-color: var(--bg-color);
-	z-index: 1;
+	z-index: 100;
 }
 
 .product__dec {
@@ -170,6 +174,7 @@
 	padding: 20px 15px 20px 12px;
 	background-color: var(--bg-color);
 	transform: rotateY(180deg);
+	transition: z-index 0.5s ease;
 	z-index: 99;
 }
 
@@ -206,6 +211,10 @@
 @media screen and (min-width: 420px) {
 	.products__nav-btn {
 		padding: 20px 10px;
+	}
+
+	.product__front {
+		padding: 16px 28px 9px 4px;
 	}
 }
 
