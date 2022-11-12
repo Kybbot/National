@@ -3,21 +3,28 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
+		"gen": "graphql-codegen --config codegen.yml --require dotenv/config",
+		"dev": "npm run gen && next dev",
+		"build": "npm run gen && next build",
+		"start": "npm run gen && next start",
 		"lint": "next lint",
 		"test:chrome": "npx playwright test --headed --browser=chromium",
 		"test:firefox": "npx playwright test --headed --browser=firefox",
 		"test:safari": "npx playwright test --headed --browser=webkit"
 	},
 	"dependencies": {
+		"@apollo/client": "^3.7.1",
+		"@contentful/rich-text-react-renderer": "^15.12.1",
+		"@contentful/rich-text-types": "^15.13.2",
+		"graphql": "^16.6.0",
 		"next": "13.0.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.27.1",
+		"@graphql-codegen/cli": "^2.13.11",
+		"@graphql-codegen/typescript": "^2.8.1",
+		"@graphql-codegen/typescript-operations": "^2.5.6",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.8",
