@@ -3,8 +3,25 @@ import type { NextPage } from "next";
 import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services, Products } from "../components";
 
 import { useModal } from "../hooks/useModal";
+import { getAllArticles } from "../contentful";
 
-const Home: NextPage = () => {
+import { GetAllArticlesQuery } from "../@types/contentfulSchema";
+
+export const getStaticProps = async () => {
+	const allArticles = await getAllArticles();
+
+	return {
+		props: {
+			allArticles,
+		},
+	};
+};
+
+type HomeProps = {
+	allArticles: GetAllArticlesQuery;
+};
+
+const Home: NextPage<HomeProps> = ({ allArticles }) => {
 	const { isActive, closeModal, openModal } = useModal();
 
 	return (
@@ -19,7 +36,7 @@ const Home: NextPage = () => {
 				<Services openModal={openModal} />
 				<Products />
 				<Partners />
-				<Blog />
+				<Blog articles={allArticles} />
 				<Footer openModal={openModal} />
 			</main>
 		</>

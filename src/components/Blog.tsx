@@ -1,91 +1,56 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-export const Blog: FC = () => {
+import { Article } from "./Article";
+
+import { GetAllArticlesQuery } from "../@types/contentfulSchema";
+
+type BlogProps = {
+	articles: GetAllArticlesQuery;
+};
+
+export const Blog: FC<BlogProps> = ({ articles }) => {
+	const [currentPage, setCurrentPage] = useState(1);
+
+	const linkRef = useRef<HTMLAnchorElement>(null);
+
+	const articlesPerPage = 3;
+	const lastArticleInex = currentPage * articlesPerPage;
+	const firstArticleIndex = lastArticleInex - articlesPerPage;
+	const currentArticles = articles.articleCollection.items.slice(firstArticleIndex, lastArticleInex);
+
+	const totalPages = Math.ceil(articles.articleCollection.total / articlesPerPage);
+
+	const prevPageHandler = () => {
+		setCurrentPage((prevState) => (prevState === 1 ? 1 : prevState - 1));
+		linkRef.current?.click();
+	};
+
+	const nextPageHandler = () => {
+		setCurrentPage((prevState) => (prevState === totalPages ? prevState : prevState + 1));
+		linkRef.current?.click();
+	};
+
 	return (
-		<section className="blog">
+		<section className="blog" id="blog">
 			<Image className="blog__dec" src="/img/names/blog-name.svg" alt="" height="1715" width="262" aria-hidden="true" />
 			<div className="container">
 				<h2 className="blog__title">Блог</h2>
+				<a ref={linkRef} href="#blog" style={{ display: "none" }}>
+					Blog
+				</a>
 				<div className="blog__container">
-					<article className="blog__article">
-						<div className="blog__wrapper">
-							<Image className="blog__img" src="/img/blogimg.jpg" alt="Burger" fill />
-						</div>
-						<div className="blog__info">
-							<div className="blog__top">
-								<h3 className="blog__name">Чекаєте на відкриття фастфуду?</h3>
-								<time className="blog__date" dateTime="20:00">
-									<span className="blog__day">01</span>
-									<span className="blog__month">DEC</span>
-								</time>
-							</div>
-							<div className="blog__bottom">
-								<p className="blog__text">
-									Оскільки запальні реакції — це хардвер нашого організму (тому здихатися їх не вийде і загалом
-									небезпечно), найкращий спосіб запобігти їм — взагалі відмовитися від їжі, що пройшла ультраобробку.
-								</p>
-								<div className="blog__btns">
-									<button type="button" className="blog__btn">
-										Читати
-									</button>
-								</div>
-							</div>
-						</div>
-					</article>
-					<article className="blog__article blog__article--2">
-						<div className="blog__wrapper">
-							<Image className="blog__img" src="/img/blogimg.jpg" alt="Burger" fill />
-						</div>
-						<div className="blog__info">
-							<div className="blog__top">
-								<h3 className="blog__name">Чекаєте на відкриття фастфуду?</h3>
-								<time className="blog__date" dateTime="20:00">
-									<span className="blog__day">01</span>
-									<span className="blog__month">DEC</span>
-								</time>
-							</div>
-							<div className="blog__bottom">
-								<p className="blog__text">
-									Оскільки запальні реакції — це хардвер нашого організму (тому здихатися їх не вийде і загалом
-									небезпечно), найкращий спосіб запобігти їм — взагалі відмовитися від їжі, що пройшла ультраобробку.
-								</p>
-								<div className="blog__btns">
-									<button type="button" className="blog__btn">
-										Читати
-									</button>
-								</div>
-							</div>
-						</div>
-					</article>
-					<article className="blog__article">
-						<div className="blog__wrapper">
-							<Image className="blog__img" src="/img/blogimg.jpg" alt="Burger" fill />
-						</div>
-						<div className="blog__info">
-							<div className="blog__top">
-								<h3 className="blog__name">Чекаєте на відкриття фастфуду?</h3>
-								<time className="blog__date" dateTime="20:00">
-									<span className="blog__day">01</span>
-									<span className="blog__month">DEC</span>
-								</time>
-							</div>
-							<div className="blog__bottom">
-								<p className="blog__text">
-									Оскільки запальні реакції — це хардвер нашого організму (тому здихатися їх не вийде і загалом
-									небезпечно), найкращий спосіб запобігти їм — взагалі відмовитися від їжі, що пройшла ультраобробку.
-								</p>
-								<div className="blog__btns">
-									<button type="button" className="blog__btn">
-										Читати
-									</button>
-								</div>
-							</div>
-						</div>
-					</article>
+					{currentArticles.map((item) => (
+						<Article key={item.slug} data={item} />
+					))}
 				</div>
 				<div className="blog__pagination">
-					<button className="blog__nav blog__prev" disabled aria-label="Prev 3 articles from blog">
+					<button
+						className={`blog__nav blog__prev ${currentPage !== 1 ? "blog__active" : ""}`}
+						disabled={currentPage === 1}
+						aria-label="Prev 3 articles from blog"
+						onClick={prevPageHandler}
+					>
 						<svg
 							width="17"
 							height="27"
@@ -102,7 +67,12 @@ export const Blog: FC = () => {
 							/>
 						</svg>
 					</button>
-					<button className="blog__nav blog__next blog__active" aria-label="Next 3 articles from blog">
+					<button
+						className={`blog__nav blog__next ${currentPage !== totalPages ? "blog__active" : ""} `}
+						disabled={currentPage === totalPages}
+						aria-label="Next 3 articles from blog"
+						onClick={nextPageHandler}
+					>
 						<svg
 							width="17"
 							height="27"
