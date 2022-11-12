@@ -64,6 +64,10 @@
 	opacity: 0.4;
 }
 
+.contactForm__wrapper > .contactForm__hidden {
+	display: none !important;
+}
+
 .contactForm__textarea {
 	height: 227px;
 	resize: vertical;

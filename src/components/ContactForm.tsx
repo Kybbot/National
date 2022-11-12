@@ -94,6 +94,8 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 							value={formState.comment}
 							onChange={inputHandler}
 						></textarea>
+						<input type="hidden" name="_template" value="table" />
+						<input type="text" name="_honey" className="contactForm__hidden" />
 						<button
 							className="contactForm__btn"
 							type="submit"
