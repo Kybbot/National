@@ -10,9 +10,11 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
-		<section className="services">
+		<section className="services" aria-labelledby="services">
 			<div className="container">
-				<h2 className="services__title">Наші послуги</h2>
+				<h2 className="services__title" id="services">
+					Наші послуги
+				</h2>
 				<div className="services__container">
 					<div className="services__item">
 						<Image

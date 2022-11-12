@@ -3,9 +3,11 @@ import Image from "next/image";
 
 export const Partners: FC = () => {
 	return (
-		<section className="partners">
+		<section className="partners" aria-labelledby="partners">
 			<div className="container">
-				<h2 className="partners__title">Партнери</h2>
+				<h2 className="partners__title" id="partners">
+					Партнери
+				</h2>
 				<div className="partners__container">
 					<div className="parthners__wrapper">
 						<Image

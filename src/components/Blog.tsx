@@ -32,10 +32,12 @@ export const Blog: FC<BlogProps> = ({ articles }) => {
 	};
 
 	return (
-		<section className="blog" id="blog">
+		<section className="blog" aria-labelledby="blog">
 			<Image className="blog__dec" src="/img/names/blog-name.svg" alt="" height="1715" width="262" aria-hidden="true" />
 			<div className="container">
-				<h2 className="blog__title">Блог</h2>
+				<h2 className="blog__title" id="blog">
+					Блог
+				</h2>
 				<a ref={linkRef} href="#blog" style={{ display: "none" }}>
 					Blog
 				</a>

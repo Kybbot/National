@@ -4,12 +4,14 @@ import Image from "next/image";
 export const About: FC = () => {
 	return (
 		<>
-			<section className="about">
+			<section className="about" aria-labelledby="about">
 				<div className="about__container">
 					<div className="about__img">
 						<Image src="/img/food.png" alt="Company Food" fill />
 					</div>
-					<h2 className="about__title">КОНТРАКТНЕ ВИРОБНИЦТВО</h2>
+					<h2 className="about__title" id="about">
+						КОНТРАКТНЕ ВИРОБНИЦТВО
+					</h2>
 					<div className="about__info">
 						<p className="about__text">
 							Наша компанія вже більше 5 років співпрацює із замовниками в рамках контрактного виробництва. Завдяки Нам,

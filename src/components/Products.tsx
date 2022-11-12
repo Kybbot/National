@@ -3,9 +3,11 @@ import React, { FC } from "react";
 
 export const Products: FC = () => {
 	return (
-		<section className="products">
+		<section className="products" aria-labelledby="products">
 			<div className="container">
-				<h2 className="products__title">Наша продукція</h2>
+				<h2 className="products__title" id="products">
+					Наша продукція
+				</h2>
 			</div>
 			<div className="products__nav scrollbar">
 				<button className="products__nav-btn products__nav-btn--active">Напої</button>

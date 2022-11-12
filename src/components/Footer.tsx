@@ -10,7 +10,7 @@ export const Footer: FC<FooterProps> = ({ openModal }) => {
 
 	return (
 		<>
-			<footer className="footer">
+			<footer className="footer" id="contacts">
 				<Image
 					className="footer__dec"
 					src="/img/names/footer-name.svg"
@@ -26,17 +26,17 @@ export const Footer: FC<FooterProps> = ({ openModal }) => {
 								<Image className="footer__logo" src="/img/svg/preloader.svg" alt="National" width="195" height="30" />
 								<ul className="footer__nav">
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="#about" className="footer__link">
 											Виробництво
 										</a>
 									</li>
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="#services" className="footer__link">
 											Послуги
 										</a>
 									</li>
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="#products" className="footer__link">
 											Продукція
 										</a>
 									</li>
@@ -46,12 +46,12 @@ export const Footer: FC<FooterProps> = ({ openModal }) => {
 										</a>
 									</li>
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="#partners" className="footer__link">
 											Клієнти
 										</a>
 									</li>
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="#blog" className="footer__link">
 											Блог
 										</a>
 									</li>

@@ -27,12 +27,12 @@ export const Header: FC = () => {
 							<nav className="header__nav">
 								<ul className="header__list">
 									<li className="header__element">
-										<a href="#" className="header__link">
+										<a href="#services" className="header__link">
 											Послуги
 										</a>
 									</li>
 									<li className="header__element">
-										<a href="#" className="header__link">
+										<a href="#products" className="header__link">
 											Продукція
 										</a>
 									</li>
@@ -42,12 +42,12 @@ export const Header: FC = () => {
 										</a>
 									</li>
 									<li className="header__element">
-										<a href="#" className="header__link">
+										<a href="#blog" className="header__link">
 											Блог
 										</a>
 									</li>
 									<li className="header__element">
-										<a href="#" className="header__link">
+										<a href="#contacts" className="header__link">
 											Контакти
 										</a>
 									</li>
@@ -67,27 +67,27 @@ export const Header: FC = () => {
 				<nav className="header__mobile-nav">
 					<ul className="header__mobile-list">
 						<li className="header__element">
-							<a href="#" className="header__link">
+							<a href="#services" className="header__link" onClick={toggleMobileNav}>
 								Послуги
 							</a>
 						</li>
 						<li className="header__element">
-							<a href="#" className="header__link">
+							<a href="#products" className="header__link" onClick={toggleMobileNav}>
 								Продукція
 							</a>
 						</li>
 						<li className="header__element">
-							<a href="#" className="header__link">
+							<a href="#" className="header__link" onClick={toggleMobileNav}>
 								Сертифікати
 							</a>
 						</li>
 						<li className="header__element">
-							<a href="#" className="header__link">
+							<a href="#blog" className="header__link" onClick={toggleMobileNav}>
 								Блог
 							</a>
 						</li>
 						<li className="header__element">
-							<a href="#" className="header__link">
+							<a href="#contacts" className="header__link" onClick={toggleMobileNav}>
 								Контакти
 							</a>
 						</li>
