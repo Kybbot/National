@@ -1,15 +1,19 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Article } from "./Article";
+
+import { translationType } from "../utils/translation";
 
 import { GetAllArticlesQuery } from "../@types/contentfulSchema";
 
 type BlogProps = {
 	articles: GetAllArticlesQuery;
+	language: "en" | "ua";
+	translation: translationType;
 };
 
-export const Blog: FC<BlogProps> = ({ articles }) => {
+export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const linkRef = useRef<HTMLAnchorElement>(null);
@@ -36,14 +40,14 @@ export const Blog: FC<BlogProps> = ({ articles }) => {
 			<Image className="blog__dec" src="/img/names/blog-name.svg" alt="" height="1715" width="262" aria-hidden="true" />
 			<div className="container">
 				<h2 className="blog__title" id="blog">
-					Блог
+					{translation["blogTitle"][language]}
 				</h2>
 				<a ref={linkRef} href="#blog" style={{ display: "none" }}>
-					Blog
+					{translation["blogTitle"][language]}
 				</a>
 				<div className="blog__container">
 					{currentArticles.map((item) => (
-						<Article key={item.slug} data={item} />
+						<Article key={item.slug} data={item} language={language} translation={translation} />
 					))}
 				</div>
 				<div className="blog__pagination">

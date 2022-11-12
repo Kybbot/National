@@ -1,12 +1,19 @@
 import React, { FC } from "react";
 import Image from "next/image";
 
-export const Partners: FC = () => {
+import { translationType } from "../utils/translation";
+
+type PartnersProps = {
+	language: "en" | "ua";
+	translation: translationType;
+};
+
+export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 	return (
 		<section className="partners" aria-labelledby="partners">
 			<div className="container">
 				<h2 className="partners__title" id="partners">
-					Партнери
+					{translation["partnersTitle"][language]}
 				</h2>
 				<div className="partners__container">
 					<div className="parthners__wrapper">

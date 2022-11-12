@@ -1,12 +1,19 @@
 import Image from "next/image";
 import React, { FC } from "react";
 
-export const Products: FC = () => {
+import { translationType } from "../utils/translation";
+
+type ProductsProps = {
+	language: "en" | "ua";
+	translation: translationType;
+};
+
+export const Products: FC<ProductsProps> = ({ language, translation }) => {
 	return (
 		<section className="products" aria-labelledby="products">
 			<div className="container">
 				<h2 className="products__title" id="products">
-					Наша продукція
+					{translation["productsTitle"][language]}
 				</h2>
 			</div>
 			<div className="products__nav scrollbar">

@@ -1,11 +1,15 @@
 import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
 
+import { translationType } from "../utils/translation";
+
 type BannerProps = {
+	language: "en" | "ua";
+	translation: translationType;
 	openModal: (openBtnRef: RefObject<HTMLButtonElement> | RefObject<HTMLInputElement>) => void;
 };
 
-export const Banner: FC<BannerProps> = ({ openModal }) => {
+export const Banner: FC<BannerProps> = ({ language, translation, openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
@@ -14,10 +18,11 @@ export const Banner: FC<BannerProps> = ({ openModal }) => {
 				<div className="banner__container">
 					<Image src="/img/names/red-name.svg" alt="National" className="banner__img" width="343" height="52" />
 					<h1 className="banner__title">
-						Ми надаємо найкращі умови <span className="accent-text">для реалізації Ваших продуктів!</span>
+						{translation["bannerTitle1"][language]}{" "}
+						<span className="accent-text">{translation["bannerTitle2"][language]}</span>
 					</h1>
 					<button className="btn banner__btn" type="button" onClick={() => openModal(btnRef)}>
-						Звʼязатись
+						{translation["contactBtn"][language]}
 					</button>
 				</div>
 			</div>

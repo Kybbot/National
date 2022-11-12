@@ -1,11 +1,15 @@
 import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
 
+import { translationType } from "../utils/translation";
+
 type FooterProps = {
+	language: "en" | "ua";
+	translation: translationType;
 	openModal: (openBtnRef: RefObject<HTMLButtonElement> | RefObject<HTMLInputElement>) => void;
 };
 
-export const Footer: FC<FooterProps> = ({ openModal }) => {
+export const Footer: FC<FooterProps> = ({ language, translation, openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
@@ -27,42 +31,42 @@ export const Footer: FC<FooterProps> = ({ openModal }) => {
 								<ul className="footer__nav">
 									<li className="footer__elem">
 										<a href="#about" className="footer__link">
-											Виробництво
+											{translation["navProduction"][language]}
 										</a>
 									</li>
 									<li className="footer__elem">
 										<a href="#services" className="footer__link">
-											Послуги
+											{translation["navServices"][language]}
 										</a>
 									</li>
 									<li className="footer__elem">
 										<a href="#products" className="footer__link">
-											Продукція
+											{translation["navProducts"][language]}
 										</a>
 									</li>
 									<li className="footer__elem">
 										<a href="#" className="footer__link">
-											Сертифікати
+											{translation["navCertificate"][language]}
 										</a>
 									</li>
 									<li className="footer__elem">
 										<a href="#partners" className="footer__link">
-											Клієнти
+											{translation["navClients"][language]}
 										</a>
 									</li>
 									<li className="footer__elem">
 										<a href="#blog" className="footer__link">
-											Блог
+											{translation["navBlog"][language]}
 										</a>
 									</li>
 								</ul>
 								<button ref={btnRef} className="footer__btn" type="button" onClick={() => openModal(btnRef)}>
-									Зв’язатись
+									{translation["contactBtn"][language]}
 								</button>
 								<hr className="footer__hr" />
 							</div>
 							<div className="footer__bottom">
-								<h2 className="footer__title">КОНТАКТИ</h2>
+								<h2 className="footer__title">{translation["navContacts"][language]}</h2>
 								<div className="footer__contacts">
 									<div className="footer__emails">
 										<Image

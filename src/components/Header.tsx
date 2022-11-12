@@ -1,7 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 
-export const Header: FC = () => {
+import { translationType } from "../utils/translation";
+
+type HeaderProps = {
+	language: "en" | "ua";
+	translation: translationType;
+	changeLanguage: () => void;
+};
+
+export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage }) => {
 	const [isOpen, setOpen] = useState(false);
 
 	const toggleMobileNav = () => {
@@ -28,33 +36,33 @@ export const Header: FC = () => {
 								<ul className="header__list">
 									<li className="header__element">
 										<a href="#services" className="header__link">
-											Послуги
+											{translation["navServices"][language]}
 										</a>
 									</li>
 									<li className="header__element">
 										<a href="#products" className="header__link">
-											Продукція
+											{translation["navProducts"][language]}
 										</a>
 									</li>
 									<li className="header__element">
 										<a href="#" className="header__link">
-											Сертифікати
+											{translation["navCertificate"][language]}
 										</a>
 									</li>
 									<li className="header__element">
 										<a href="#blog" className="header__link">
-											Блог
+											{translation["navBlog"][language]}
 										</a>
 									</li>
 									<li className="header__element">
 										<a href="#contacts" className="header__link">
-											Контакти
+											{translation["navContacts"][language]}
 										</a>
 									</li>
 								</ul>
 							</nav>
-							<button type="button" className="header__lng">
-								ENG
+							<button type="button" className="header__lng" onClick={changeLanguage}>
+								{translation["navBtn"][language]}
 							</button>
 						</div>
 						<button type="button" className="header__btn" aria-label="Open menu" onClick={toggleMobileNav}>
@@ -68,27 +76,27 @@ export const Header: FC = () => {
 					<ul className="header__mobile-list">
 						<li className="header__element">
 							<a href="#services" className="header__link" onClick={toggleMobileNav}>
-								Послуги
+								{translation["navServices"][language]}
 							</a>
 						</li>
 						<li className="header__element">
 							<a href="#products" className="header__link" onClick={toggleMobileNav}>
-								Продукція
+								{translation["navProducts"][language]}
 							</a>
 						</li>
 						<li className="header__element">
 							<a href="#" className="header__link" onClick={toggleMobileNav}>
-								Сертифікати
+								{translation["navCertificate"][language]}
 							</a>
 						</li>
 						<li className="header__element">
 							<a href="#blog" className="header__link" onClick={toggleMobileNav}>
-								Блог
+								{translation["navBlog"][language]}
 							</a>
 						</li>
 						<li className="header__element">
 							<a href="#contacts" className="header__link" onClick={toggleMobileNav}>
-								Контакти
+								{translation["navContacts"][language]}
 							</a>
 						</li>
 					</ul>

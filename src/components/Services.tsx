@@ -2,18 +2,22 @@ import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { translationType } from "../utils/translation";
+
 type ServicesProps = {
+	language: "en" | "ua";
+	translation: translationType;
 	openModal: (openBtnRef: RefObject<HTMLButtonElement>) => void;
 };
 
-export const Services: FC<ServicesProps> = ({ openModal }) => {
+export const Services: FC<ServicesProps> = ({ language, translation, openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
 		<section className="services" aria-labelledby="services">
 			<div className="container">
 				<h2 className="services__title" id="services">
-					Наші послуги
+					{translation["servicesTitle"][language]}
 				</h2>
 				<div className="services__container">
 					<div className="services__item">
@@ -26,7 +30,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Створення продукту з 0
+							{translation["servicesItem1"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -39,7 +43,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Виробництво соків, газованих напоїв у скло
+							{translation["servicesItem2"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -52,7 +56,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Виробництво консервації
+							{translation["servicesItem3"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -65,7 +69,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Виробництво їжі довготривалого зберігання
+							{translation["servicesItem4"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -78,7 +82,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Виробництво меду
+							{translation["servicesItem5"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -91,7 +95,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Виробництво соусів та томатної групи
+							{translation["servicesItem6"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -104,7 +108,7 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Формування гнучкої упаковки
+							{translation["servicesItem7"][language]}
 						</Link>
 					</div>
 					<div className="services__item">
@@ -117,12 +121,12 @@ export const Services: FC<ServicesProps> = ({ openModal }) => {
 							aria-hidden="true"
 						/>
 						<Link href="/" className="services__link">
-							Co-packing
+							{translation["servicesItem8"][language]}
 						</Link>
 					</div>
 				</div>
 				<button ref={btnRef} className="btn services__btn" type="button" onClick={() => openModal(btnRef)}>
-					Звʼязатись
+					{translation["contactBtn"][language]}
 				</button>
 			</div>
 		</section>

@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 
 import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services, Products } from "../components";
 
-import { useModal } from "../hooks/useModal";
 import { getAllArticles } from "../contentful";
+import { useModal } from "../hooks/useModal";
+import { useLanguage } from "../hooks/useLanguage";
+
+import { translation } from "../utils/translation";
 
 import { GetAllArticlesQuery } from "../@types/contentfulSchema";
 
@@ -23,21 +26,22 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ allArticles }) => {
 	const { isActive, closeModal, openModal } = useModal();
+	const { language, changeLanguage } = useLanguage();
 
 	return (
 		<>
-			<Header />
+			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
 					<ContactForm active={isActive} closeModal={closeModal} />
 				</Modal>
-				<Banner openModal={openModal} />
-				<About />
-				<Services openModal={openModal} />
-				<Products />
-				<Partners />
-				<Blog articles={allArticles} />
-				<Footer openModal={openModal} />
+				<Banner language={language} translation={translation} openModal={openModal} />
+				<About language={language} translation={translation} />
+				<Services language={language} translation={translation} openModal={openModal} />
+				<Products language={language} translation={translation} />
+				<Partners language={language} translation={translation} />
+				<Blog language={language} translation={translation} articles={allArticles} />
+				<Footer language={language} translation={translation} openModal={openModal} />
 			</main>
 		</>
 	);
