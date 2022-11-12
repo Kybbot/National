@@ -6,20 +6,6 @@ type ContactForm = {
 	closeModal: () => void;
 };
 
-type ApiResult<T> = {
-	data: T;
-	success: true;
-};
-
-type ApiError = {
-	error: {
-		message: string;
-	};
-	success: false;
-};
-
-type ApiResponse<T> = ApiError | ApiResult<T>;
-
 export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 	const initialState = {
 		name: "",
@@ -52,26 +38,23 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 		const data = JSON.stringify(formState);
 
 		try {
-			const response = await fetch("/api/pageclip", {
+			const response = await fetch("https://formsubmit.co/ajax/d9c7147fec2db3447c5b62151bd214b3", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
 				body: data,
 			});
-			const result = (await response.json()) as ApiResponse<{ message: string }>;
 
-			if (!response.ok && !result.success) {
+			if (!response.ok) {
 				setLoading(false);
-				throw new Error(result.error.message);
+				throw new Error("Error");
 			}
 
-			if (result.success) {
-				setLoading(false);
-				setSuccess(true);
-				setFormState(initialState);
-				return;
-			}
+			setLoading(false);
+			setSuccess(true);
+			setFormState(initialState);
+			return;
 		} catch (error) {
 			setError(true);
 			setLoading(false);
