@@ -41,8 +41,8 @@ const Home: NextPage<HomeProps> = ({ allArticles }) => {
 				<Products language={language} translation={translation} />
 				<Partners language={language} translation={translation} />
 				<Blog language={language} translation={translation} articles={allArticles} />
-				<Footer language={language} translation={translation} openModal={openModal} />
 			</main>
+			<Footer language={language} translation={translation} openModal={openModal} />
 		</>
 	);
 };
