@@ -129,4 +129,13 @@ export const translation: translationType = {
 		en: "Read",
 		ua: "Читати",
 	},
+	// ARTICLE
+	artilceLink: {
+		en: "Copied link to article",
+		ua: "Скопійовано посилання на статтю",
+	},
+	artilceShare: {
+		en: "Share:",
+		ua: "Поширити:",
+	},
 };

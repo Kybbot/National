@@ -2,6 +2,7 @@ import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
 
 import { translationType } from "../utils/translation";
+import Link from "next/link";
 
 type FooterProps = {
 	language: "en" | "ua";
@@ -30,19 +31,19 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 								<Image className="footer__logo" src="/img/svg/preloader.svg" alt="National" width="195" height="30" />
 								<ul className="footer__nav">
 									<li className="footer__elem">
-										<a href="#about" className="footer__link">
+										<Link href="/#about" className="footer__link">
 											{translation["navProduction"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="footer__elem">
-										<a href="#services" className="footer__link">
+										<Link href="/#services" className="footer__link">
 											{translation["navServices"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="footer__elem">
-										<a href="#products" className="footer__link">
+										<Link href="/#products" className="footer__link">
 											{translation["navProducts"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="footer__elem">
 										<a href="#" className="footer__link">
@@ -50,14 +51,14 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 										</a>
 									</li>
 									<li className="footer__elem">
-										<a href="#partners" className="footer__link">
+										<Link href="/#partners" className="footer__link">
 											{translation["navClients"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="footer__elem">
-										<a href="#blog" className="footer__link">
+										<Link href="/#blog" className="footer__link">
 											{translation["navBlog"][language]}
-										</a>
+										</Link>
 									</li>
 								</ul>
 								<button ref={btnRef} className="footer__btn" type="button" onClick={() => openModal(btnRef)}>

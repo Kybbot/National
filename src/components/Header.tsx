@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 
 import { translationType } from "../utils/translation";
+import Link from "next/link";
 
 type HeaderProps = {
 	language: "en" | "ua";
@@ -11,6 +12,7 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage }) => {
 	const [isOpen, setOpen] = useState(false);
+	const [location, setLocation] = useState<Location | null>(null);
 
 	const toggleMobileNav = () => {
 		setOpen((prev) => !prev);
@@ -24,40 +26,48 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 		}
 	}, [isOpen]);
 
+	useEffect(() => {
+		if (window) {
+			setLocation(window.location);
+		}
+	}, []);
+
 	return (
 		<header className="header">
 			<div className="header__top"></div>
 			<div className="header__main">
 				<div className="container">
 					<div className="header__section">
-						<Image src="/img/svg/preloader.svg" alt="National" className="header__logo" width="142" height="21" />
+						<Link href="/">
+							<Image src="/img/svg/preloader.svg" alt="National" className="header__logo" width="142" height="21" />
+						</Link>
 						<div className="header__wrapper">
 							<nav className="header__nav">
 								<ul className="header__list">
 									<li className="header__element">
-										<a href="#services" className="header__link">
+										<Link href="/#services" className="header__link">
 											{translation["navServices"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="header__element">
-										<a href="#products" className="header__link">
+										<Link href="/#products" className="header__link">
 											{translation["navProducts"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="header__element">
-										<a href="#" className="header__link">
+										<Link href="#" className="header__link">
 											{translation["navCertificate"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="header__element">
-										<a href="#blog" className="header__link">
+										<Link href="/#blog" className="header__link">
 											{translation["navBlog"][language]}
-										</a>
+										</Link>
 									</li>
 									<li className="header__element">
-										<a href="#contacts" className="header__link">
+										<Link href="/#contacts" className="header__link">
 											{translation["navContacts"][language]}
-										</a>
+										</Link>
 									</li>
 								</ul>
 							</nav>
@@ -75,29 +85,29 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 				<nav className="header__mobile-nav">
 					<ul className="header__mobile-list">
 						<li className="header__element">
-							<a href="#services" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#services" className="header__link" onClick={toggleMobileNav}>
 								{translation["navServices"][language]}
-							</a>
+							</Link>
 						</li>
 						<li className="header__element">
-							<a href="#products" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#products" className="header__link" onClick={toggleMobileNav}>
 								{translation["navProducts"][language]}
-							</a>
+							</Link>
 						</li>
 						<li className="header__element">
-							<a href="#" className="header__link" onClick={toggleMobileNav}>
+							<Link href="#" className="header__link" onClick={toggleMobileNav}>
 								{translation["navCertificate"][language]}
-							</a>
+							</Link>
 						</li>
 						<li className="header__element">
-							<a href="#blog" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#blog" className="header__link" onClick={toggleMobileNav}>
 								{translation["navBlog"][language]}
-							</a>
+							</Link>
 						</li>
 						<li className="header__element">
-							<a href="#contacts" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#contacts" className="header__link" onClick={toggleMobileNav}>
 								{translation["navContacts"][language]}
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</nav>

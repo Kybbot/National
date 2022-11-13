@@ -4,8 +4,9 @@ import Image from "next/image";
 import useFormattedDate from "../hooks/useFormattedDate";
 
 import { translationType } from "../utils/translation";
+import Link from "next/link";
 
-type ArticleProps = {
+type BlogItemProps = {
 	data: {
 		title: string;
 		slug: string;
@@ -21,7 +22,7 @@ type ArticleProps = {
 	translation: translationType;
 };
 
-export const Article: FC<ArticleProps> = ({ data, language, translation }) => {
+export const BlogItem: FC<BlogItemProps> = ({ data, language, translation }) => {
 	const date = useFormattedDate(data.date);
 
 	return (
@@ -40,9 +41,9 @@ export const Article: FC<ArticleProps> = ({ data, language, translation }) => {
 				<div className="blog__bottom">
 					<p className="blog__text">{language === "ua" ? data.descriptionUk : data.description}</p>
 					<div className="blog__btns">
-						<button type="button" className="blog__btn">
+						<Link href={`/article/${data.slug}`} type="button" className="blog__btn">
 							{translation["blogBtn"][language]}
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>
