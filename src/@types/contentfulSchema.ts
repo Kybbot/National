@@ -999,3 +999,15 @@ export type GetAllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAllArticlesQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', total: number, items: Array<{ __typename?: 'Article', title: string, slug: string, date: any, description: string, titleUk: string, descriptionUk: string, image: { __typename?: 'Asset', url: string } }> } };
+
+export type GetAllArticlesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllArticlesSlugsQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', slug: string }> } };
+
+export type GetArticleBySlugQueryVariables = Exact<{
+  slug: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetArticleBySlugQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', title: string, slug: string, date: any, description: string, titleUk: string, descriptionUk: string, image: { __typename?: 'Asset', url: string }, text: { __typename?: 'ArticleText', json: any }, textUk: { __typename?: 'ArticleText', json: any } }> } };
