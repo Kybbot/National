@@ -16,14 +16,19 @@
 }
 
 .footer__close {
-	position: absolute;
-	top: 36px;
-	right: 16px;
 	padding: 0;
 	color: var(--white-text);
 	background-color: transparent;
 	border-style: none;
 	cursor: pointer;
+}
+
+.contactForm__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 0 0 32px 0;
 }
 
 .contactForm__wrapper {
@@ -40,7 +45,7 @@
 	font-size: 24px;
 	line-height: 31px;
 	text-transform: uppercase;
-	margin: 0 0 32px 0;
+	margin: 0;
 	color: var(--white-text);
 }
 

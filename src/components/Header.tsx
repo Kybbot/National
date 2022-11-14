@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { translationType } from "../utils/translation";
-import Link from "next/link";
 
 type HeaderProps = {
 	language: "en" | "ua";
@@ -12,7 +12,6 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage }) => {
 	const [isOpen, setOpen] = useState(false);
-	const [location, setLocation] = useState<Location | null>(null);
 
 	const toggleMobileNav = () => {
 		setOpen((prev) => !prev);
@@ -25,12 +24,6 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 			document.body.classList.remove("body--hidden");
 		}
 	}, [isOpen]);
-
-	useEffect(() => {
-		if (window) {
-			setLocation(window.location);
-		}
-	}, []);
 
 	return (
 		<header className="header">
@@ -55,9 +48,9 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 										</Link>
 									</li>
 									<li className="header__element">
-										<Link href="#" className="header__link">
+										<a href="/Certificates.pdf" className="header__link" target="_blank" rel="noreferrer noopener">
 											{translation["navCertificate"][language]}
-										</Link>
+										</a>
 									</li>
 									<li className="header__element">
 										<Link href="/#blog" className="header__link">

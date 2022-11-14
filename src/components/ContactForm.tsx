@@ -66,7 +66,14 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 			<div className="container">
 				<div className="contactForm__container">
 					<div className="contactForm__wrapper">
-						<h2 className="contactForm__title">Залишити заявку</h2>
+						<div className="contactForm__top">
+							<h2 className="contactForm__title">Залишити заявку</h2>
+							<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
+								<svg width="23" height="22" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.17871 2L25.1787 24M2.17871 24L25.1787 2" stroke="currentColor" strokeWidth="4" />
+								</svg>
+							</button>
+						</div>
 						<input
 							type="text"
 							name="name"
@@ -211,11 +218,6 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 							</div>
 						</div>
 					</div>
-					<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
-						<svg width="23" height="22" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M2.17871 2L25.1787 24M2.17871 24L25.1787 2" stroke="currentColor" strokeWidth="4" />
-						</svg>
-					</button>
 				</div>
 			</div>
 		</form>

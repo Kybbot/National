@@ -24,6 +24,11 @@
 	line-height: 17px;
 	color: var(--white-text);
 	text-decoration: none;
+	text-decoration-thickness: 2px;
+}
+
+.footer__link:hover {
+	text-decoration-line: underline;
 }
 
 .footer__btn {

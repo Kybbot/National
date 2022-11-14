@@ -46,7 +46,7 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 										</Link>
 									</li>
 									<li className="footer__elem">
-										<a href="#" className="footer__link">
+										<a href="/Certificates.pdf" className="footer__link" target="_blank" rel="noreferrer noopener">
 											{translation["navCertificate"][language]}
 										</a>
 									</li>

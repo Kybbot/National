@@ -638,6 +638,7 @@ export type ProductCategoryLinkingCollections = {
   __typename?: 'ProductCategoryLinkingCollections';
   entryCollection: Maybe<EntryCollection>;
   productCollection: Maybe<ProductCollection>;
+  productSubcategoryCollection: Maybe<ProductSubcategoryCollection>;
 };
 
 
@@ -650,6 +651,14 @@ export type ProductCategoryLinkingCollectionsEntryCollectionArgs = {
 
 
 export type ProductCategoryLinkingCollectionsProductCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type ProductCategoryLinkingCollectionsProductSubcategoryCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
@@ -735,10 +744,18 @@ export enum ProductOrder {
 /** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
 export type ProductSubcategory = Entry & {
   __typename?: 'ProductSubcategory';
+  category: Maybe<ProductCategory>;
   contentfulMetadata: ContentfulMetadata;
   linkedFrom: Maybe<ProductSubcategoryLinkingCollections>;
   name: Maybe<Scalars['String']>;
   sys: Sys;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
+export type ProductSubcategoryCategoryArgs = {
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -764,6 +781,8 @@ export type ProductSubcategoryCollection = {
 export type ProductSubcategoryFilter = {
   AND: InputMaybe<Array<InputMaybe<ProductSubcategoryFilter>>>;
   OR: InputMaybe<Array<InputMaybe<ProductSubcategoryFilter>>>;
+  category: InputMaybe<CfProductCategoryNestedFilter>;
+  category_exists: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
   name: InputMaybe<Scalars['String']>;
   name_contains: InputMaybe<Scalars['String']>;
@@ -984,6 +1003,7 @@ export type CfProductCategoryNestedFilter = {
 export type CfProductSubcategoryNestedFilter = {
   AND: InputMaybe<Array<InputMaybe<CfProductSubcategoryNestedFilter>>>;
   OR: InputMaybe<Array<InputMaybe<CfProductSubcategoryNestedFilter>>>;
+  category_exists: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
   name: InputMaybe<Scalars['String']>;
   name_contains: InputMaybe<Scalars['String']>;

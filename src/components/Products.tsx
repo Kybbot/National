@@ -22,7 +22,7 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 				<button className="products__nav-btn ">Інша продукція</button>
 			</div>
 			<div className="products__wrapper">
-				<div className="container">
+				<div className="container container--small">
 					<div className="products__container">
 						<div className="products__subnav">
 							<button className="products__subnav-btn products__subnav-btn--active">Соки</button>
@@ -32,13 +32,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">
@@ -68,13 +67,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">
@@ -104,13 +102,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">
@@ -140,13 +137,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">
@@ -176,13 +172,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">
@@ -212,13 +207,12 @@ export const Products: FC<ProductsProps> = ({ language, translation }) => {
 							<article className="product__item">
 								<div className="product__inner">
 									<div className="product__front">
-										<div className="product__dec"></div>
 										<div className="product__text">
 											<h3 className="product__title">Сік абрикосовий</h3>
 											<p className="product__amount">0.25 л / 0.5 л</p>
 										</div>
 										<div className="product__preview">
-											<Image className="product__img" src="/img/juce.png" alt="Juce" width="93" height="179" />
+											<Image className="product__img" src="/img/juce.png" alt="Juce" width="180" height="180" />
 										</div>
 									</div>
 									<div className="product__back">

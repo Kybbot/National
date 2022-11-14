@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { BlogItem } from "./BlogItem";
@@ -16,7 +16,7 @@ type BlogProps = {
 export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 
-	const linkRef = useRef<HTMLAnchorElement>(null);
+	const sectionRef = useRef<HTMLDivElement>(null);
 
 	const articlesPerPage = 3;
 	const lastArticleInex = currentPage * articlesPerPage;
@@ -27,24 +27,29 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 
 	const prevPageHandler = () => {
 		setCurrentPage((prevState) => (prevState === 1 ? 1 : prevState - 1));
-		linkRef.current?.click();
 	};
 
 	const nextPageHandler = () => {
 		setCurrentPage((prevState) => (prevState === totalPages ? prevState : prevState + 1));
-		linkRef.current?.click();
 	};
 
+	useEffect(() => {
+		if (currentPage !== 1 && sectionRef.current) {
+			window.scrollTo({
+				top: sectionRef.current.offsetTop,
+				left: 0,
+				behavior: "smooth",
+			});
+		}
+	}, [currentPage]);
+
 	return (
-		<section className="blog" aria-labelledby="blog">
+		<section ref={sectionRef} className="blog" aria-labelledby="blog">
 			<Image className="blog__dec" src="/img/names/blog-name.svg" alt="" height="1715" width="262" aria-hidden="true" />
 			<div className="container">
 				<h2 className="blog__title" id="blog">
 					{translation["blogTitle"][language]}
 				</h2>
-				<a ref={linkRef} href="#blog" style={{ display: "none" }}>
-					{translation["blogTitle"][language]}
-				</a>
 				<div className="blog__container">
 					{currentArticles.map((item) => (
 						<BlogItem key={item.slug} data={item} language={language} translation={translation} />
