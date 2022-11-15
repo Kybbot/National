@@ -64,9 +64,14 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 									</li>
 								</ul>
 							</nav>
-							<button type="button" className="header__lng" onClick={changeLanguage}>
-								{translation["navBtn"][language]}
-							</button>
+							<select id="language" className="header__lng" value={language} onChange={changeLanguage}>
+								<option className="header__option" value="en">
+									ENG
+								</option>
+								<option className="header__option" value="ua">
+									УКР
+								</option>
+							</select>
 						</div>
 						<button type="button" className="header__btn" aria-label="Open menu" onClick={toggleMobileNav}>
 							<Image src="/img/svg/burger.svg" alt="National" width="25" height="19" aria-hidden="true" />
