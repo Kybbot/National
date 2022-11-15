@@ -31,17 +31,17 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 								<Image className="footer__logo" src="/img/svg/preloader.svg" alt="National" width="195" height="30" />
 								<ul className="footer__nav">
 									<li className="footer__elem">
-										<Link href="/#about" className="footer__link">
+										<Link href="/#about" className="footer__link" scroll={false}>
 											{translation["navProduction"][language]}
 										</Link>
 									</li>
 									<li className="footer__elem">
-										<Link href="/#services" className="footer__link">
+										<Link href="/#services" className="footer__link" scroll={false}>
 											{translation["navServices"][language]}
 										</Link>
 									</li>
 									<li className="footer__elem">
-										<Link href="/#products" className="footer__link">
+										<Link href="/#products" className="footer__link" scroll={false}>
 											{translation["navProducts"][language]}
 										</Link>
 									</li>
@@ -51,12 +51,12 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 										</a>
 									</li>
 									<li className="footer__elem">
-										<Link href="/#partners" className="footer__link">
+										<Link href="/#partners" className="footer__link" scroll={false}>
 											{translation["navClients"][language]}
 										</Link>
 									</li>
 									<li className="footer__elem">
-										<Link href="/#blog" className="footer__link">
+										<Link href="/#blog" className="footer__link" scroll={false}>
 											{translation["navBlog"][language]}
 										</Link>
 									</li>

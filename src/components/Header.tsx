@@ -38,12 +38,12 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 							<nav className="header__nav">
 								<ul className="header__list">
 									<li className="header__element">
-										<Link href="/#services" className="header__link">
+										<Link href="/#services" className="header__link" scroll={false}>
 											{translation["navServices"][language]}
 										</Link>
 									</li>
 									<li className="header__element">
-										<Link href="/#products" className="header__link">
+										<Link href="/#products" className="header__link" scroll={false}>
 											{translation["navProducts"][language]}
 										</Link>
 									</li>
@@ -53,12 +53,12 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 										</a>
 									</li>
 									<li className="header__element">
-										<Link href="/#blog" className="header__link">
+										<Link href="/#blog" className="header__link" scroll={false}>
 											{translation["navBlog"][language]}
 										</Link>
 									</li>
 									<li className="header__element">
-										<Link href="/#contacts" className="header__link">
+										<Link href="/#contacts" className="header__link" scroll={false}>
 											{translation["navContacts"][language]}
 										</Link>
 									</li>
@@ -83,27 +83,33 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 				<nav className="header__mobile-nav">
 					<ul className="header__mobile-list">
 						<li className="header__element">
-							<Link href="/#services" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#services" className="header__link" onClick={toggleMobileNav} scroll={false}>
 								{translation["navServices"][language]}
 							</Link>
 						</li>
 						<li className="header__element">
-							<Link href="/#products" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#products" className="header__link" onClick={toggleMobileNav} scroll={false}>
 								{translation["navProducts"][language]}
 							</Link>
 						</li>
 						<li className="header__element">
-							<Link href="#" className="header__link" onClick={toggleMobileNav}>
+							<a
+								href="/Certificates.pdf"
+								className="header__link"
+								target="_blank"
+								rel="noreferrer noopener"
+								onClick={toggleMobileNav}
+							>
 								{translation["navCertificate"][language]}
-							</Link>
+							</a>
 						</li>
 						<li className="header__element">
-							<Link href="/#blog" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#blog" className="header__link" onClick={toggleMobileNav} scroll={false}>
 								{translation["navBlog"][language]}
 							</Link>
 						</li>
 						<li className="header__element">
-							<Link href="/#contacts" className="header__link" onClick={toggleMobileNav}>
+							<Link href="/#contacts" className="header__link" onClick={toggleMobileNav} scroll={false}>
 								{translation["navContacts"][language]}
 							</Link>
 						</li>
