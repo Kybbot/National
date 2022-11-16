@@ -18,14 +18,14 @@ export const getAllArticles = async () => {
 				total
 				items {
 					title
-					titleUk: title(locale: "uk")
+					titleEn: title(locale: "en-US")
 					slug
 					date
 					image {
 						url
 					}
 					description
-					descriptionUk: description(locale: "uk")
+					descriptionEn: description(locale: "en-US")
 				}
 			}
 		}
@@ -64,18 +64,18 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 			articleCollection(where: { slug: $slug }, limit: 1) {
 				items {
 					title
-					titleUk: title(locale: "uk")
+					titleEn: title(locale: "en-US")
 					slug
 					date
 					image {
 						url
 					}
 					description
-					descriptionUk: description(locale: "uk")
+					descriptionEn: description(locale: "en-US")
 					text {
 						json
 					}
-					textUk: text(locale: "uk") {
+					textEn: text(locale: "en-US") {
 						json
 					}
 				}

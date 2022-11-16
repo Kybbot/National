@@ -62,13 +62,13 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 	const {
 		image: { url },
 		title,
-		titleUk,
+		titleEn,
 		slug,
 		date,
 		description,
-		descriptionUk,
+		descriptionEn,
 		text,
-		textUk,
+		textEn,
 	} = post.articleCollection.items[0];
 
 	const finalDate = useFormattedDate(date);
@@ -138,18 +138,18 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 							</div>
 							<div className="blog__info">
 								<div className="blog__top">
-									<h1 className="blog__name">{language === "ua" ? titleUk : title}</h1>
+									<h1 className="blog__name">{language === "ua" ? title : titleEn}</h1>
 									<time className="blog__date" dateTime={`${finalDate.day} - ${finalDate.month}`}>
 										<span className="blog__day">{finalDate.day}</span>
 										<span className="blog__month">{language === "ua" ? finalDate.monthUk : finalDate.month}</span>
 									</time>
 								</div>
 								<div className="blog__bottom">
-									<p className="blog__text">{language === "ua" ? descriptionUk : description}</p>
+									<p className="blog__text">{language === "ua" ? description : descriptionEn}</p>
 								</div>
 							</div>
 							<div className="article__content">
-								{documentToReactComponents(language === "ua" ? textUk.json : text.json, renderOptions())}
+								{documentToReactComponents(language === "ua" ? text.json : textEn.json, renderOptions())}
 							</div>
 							<div className="article__btns">
 								<div className="article__socials">

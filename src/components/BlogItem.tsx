@@ -12,8 +12,8 @@ type BlogItemProps = {
 		slug: string;
 		date: any;
 		description: string;
-		titleUk: string;
-		descriptionUk: string;
+		titleEn: string;
+		descriptionEn: string;
 		image: {
 			url: string;
 		};
@@ -32,14 +32,14 @@ export const BlogItem: FC<BlogItemProps> = ({ data, language, translation }) => 
 			</div>
 			<div className="blog__info">
 				<div className="blog__top">
-					<h3 className="blog__name">{language === "ua" ? data.titleUk : data.title}</h3>
+					<h3 className="blog__name">{language === "ua" ? data.title : data.titleEn}</h3>
 					<time className="blog__date" dateTime={`${date.day} - ${date.month}`}>
 						<span className="blog__day">{date.day}</span>
 						<span className="blog__month">{language === "ua" ? date.monthUk : date.month}</span>
 					</time>
 				</div>
 				<div className="blog__bottom">
-					<p className="blog__text">{language === "ua" ? data.descriptionUk : data.description}</p>
+					<p className="blog__text">{language === "ua" ? data.description : data.descriptionEn}</p>
 					<div className="blog__btns">
 						<Link href={`/article/${data.slug}`} type="button" className="blog__btn">
 							{translation["blogBtn"][language]}
