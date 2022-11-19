@@ -2,29 +2,64 @@ import type { NextPage } from "next";
 
 import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services, Products } from "../components";
 
-import { getAllArticles } from "../contentful";
+import { getAllArticles, getProducts } from "../contentful";
 import { useModal } from "../hooks/useModal";
 import { useLanguage } from "../hooks/useLanguage";
 
 import { translation } from "../utils/translation";
 
 import { GetAllArticlesQuery } from "../@types/contentfulSchema";
+import { CategoriesListType, ProductsInfoType, ProductType, SubCategoriesList } from "../@types/products";
 
 export const getStaticProps = async () => {
 	const allArticles = await getAllArticles();
+	const products = await getProducts();
+
+	const categoriesList = products.categoriesList.items;
+	const subCategoriesList = products.subCategoriesList.items;
+
+	const categories = products.categories.items;
+	const allProducts = products.products.items;
+
+	const productsInfo: { [key: string]: { [key: string]: ProductType[] } } = {};
+
+	for (let i = 0; i < categories.length; i++) {
+		if (!categories[i].linkedFrom.productSubcategoryCollection.items.length) continue;
+
+		const category = categories[i].name;
+		let obj: { [key: string]: [] } = {};
+		for (let j = 0; j < categories[i].linkedFrom.productSubcategoryCollection.items.length; j++) {
+			const subCategory = categories[i].linkedFrom.productSubcategoryCollection.items[j].name;
+			obj[subCategory] = [];
+		}
+		productsInfo[category] = obj;
+	}
+
+	for (let i = 0; i < allProducts.length; i++) {
+		const category = allProducts[i].category.name;
+		const subcategory = allProducts[i].subcategory.name;
+
+		productsInfo[category][subcategory].push(allProducts[i]);
+	}
 
 	return {
 		props: {
 			allArticles,
+			productsInfo,
+			categoriesList,
+			subCategoriesList,
 		},
 	};
 };
 
 type HomeProps = {
 	allArticles: GetAllArticlesQuery;
+	productsInfo: ProductsInfoType;
+	categoriesList: CategoriesListType;
+	subCategoriesList: SubCategoriesList;
 };
 
-const Home: NextPage<HomeProps> = ({ allArticles }) => {
+const Home: NextPage<HomeProps> = ({ allArticles, productsInfo, categoriesList, subCategoriesList }) => {
 	const { isActive, closeModal, openModal } = useModal();
 	const { language, changeLanguage } = useLanguage();
 
@@ -38,7 +73,13 @@ const Home: NextPage<HomeProps> = ({ allArticles }) => {
 				<Banner language={language} translation={translation} openModal={openModal} />
 				<About language={language} translation={translation} />
 				<Services language={language} translation={translation} openModal={openModal} />
-				<Products language={language} translation={translation} />
+				<Products
+					language={language}
+					translation={translation}
+					categoriesList={categoriesList}
+					subCategoriesList={subCategoriesList}
+					productsInfo={productsInfo}
+				/>
 				<Partners language={language} translation={translation} />
 				<Blog language={language} translation={translation} articles={allArticles} />
 			</main>

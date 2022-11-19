@@ -17,7 +17,7 @@ export type Scalars = {
   Quality: any;
 };
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type Article = Entry & {
   __typename?: 'Article';
   contentfulMetadata: ContentfulMetadata;
@@ -32,44 +32,44 @@ export type Article = Entry & {
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleDateArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleDescriptionArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleImageArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleLinkedFromArgs = {
   allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleSlugArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleTextArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** Blog article [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
+/** Стаття для блогу [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/article) */
 export type ArticleTitleArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
@@ -532,7 +532,7 @@ export type ImageTransformOptions = {
   width: InputMaybe<Scalars['Dimension']>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type Product = Entry & {
   __typename?: 'Product';
   category: Maybe<ProductCategory>;
@@ -547,51 +547,51 @@ export type Product = Entry & {
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductCategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductImageArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductInfoArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductLinkedFromArgs = {
   allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductNameArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductQuantityArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
+/** Продукт [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/product) */
 export type ProductSubcategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
+/** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
 export type ProductCategory = Entry & {
   __typename?: 'ProductCategory';
   contentfulMetadata: ContentfulMetadata;
@@ -601,13 +601,13 @@ export type ProductCategory = Entry & {
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
+/** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
 export type ProductCategoryLinkedFromArgs = {
   allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
+/** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
 export type ProductCategoryNameArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
@@ -741,7 +741,7 @@ export enum ProductOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
+/** Підкатегорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
 export type ProductSubcategory = Entry & {
   __typename?: 'ProductSubcategory';
   category: Maybe<ProductCategory>;
@@ -752,20 +752,20 @@ export type ProductSubcategory = Entry & {
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
+/** Підкатегорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
 export type ProductSubcategoryCategoryArgs = {
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
+/** Підкатегорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
 export type ProductSubcategoryLinkedFromArgs = {
   allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-/** [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
+/** Підкатегорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productSubcategory) */
 export type ProductSubcategoryNameArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
@@ -1031,3 +1031,8 @@ export type GetArticleBySlugQueryVariables = Exact<{
 
 
 export type GetArticleBySlugQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', title: string, slug: string, date: any, description: string, titleEn: string, descriptionEn: string, image: { __typename?: 'Asset', url: string }, text: { __typename?: 'ArticleText', json: any }, textEn: { __typename?: 'ArticleText', json: any } }> } };
+
+export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };

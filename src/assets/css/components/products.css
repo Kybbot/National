@@ -125,6 +125,7 @@
 
 .product__front {
 	display: flex;
+	justify-content: flex-end;
 	padding: 16px 7px 9px 4px;
 	background-color: var(--bg-color);
 	overflow: hidden;
@@ -229,7 +230,6 @@
 	}
 
 	.product__front {
-		justify-content: flex-end;
 		padding: 16px 0 9px 4px;
 	}
 
@@ -318,7 +318,6 @@
 	}
 
 	.product__front {
-		justify-content: flex-start;
 		padding: 29px 0 16px 7px;
 	}
 
@@ -327,6 +326,8 @@
 	}
 
 	.product__text {
+		position: relative;
+		margin-right: -7px;
 		max-width: 163px;
 	}
 

@@ -9,6 +9,8 @@ import {
 	GetAllArticlesSlugsQueryVariables,
 	GetArticleBySlugQuery,
 	GetArticleBySlugQueryVariables,
+	GetProductsQuery,
+	GetProductsQueryVariables,
 } from "../@types/contentfulSchema";
 
 export const getAllArticles = async () => {
@@ -88,6 +90,65 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 		variables: {
 			slug: oneSlug,
 		},
+	});
+
+	return data;
+};
+
+export const getProducts = async () => {
+	const products = gql`
+		query getProducts {
+			categoriesList: productCategoryCollection {
+				items {
+					name
+					nameEn: name(locale: "en-US")
+				}
+			}
+			subCategoriesList: productSubcategoryCollection {
+				items {
+					name
+					nameEn: name(locale: "en-US")
+					category {
+						name
+					}
+				}
+			}
+			categories: productCategoryCollection {
+				items {
+					name
+					linkedFrom {
+						productSubcategoryCollection {
+							items {
+								name
+							}
+						}
+					}
+				}
+			}
+			products: productCollection {
+				items {
+					name
+					nameEn: name(locale: "en-US")
+					quantity
+					quantityEn: quantity(locale: "en-US")
+					image {
+						url
+					}
+					info
+					infoEn: info(locale: "en-US")
+					category {
+						name
+					}
+					subcategory {
+						name
+					}
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GetProductsQuery, GetProductsQueryVariables>({
+		query: products,
 	});
 
 	return data;
