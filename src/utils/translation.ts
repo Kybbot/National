@@ -10,6 +10,66 @@ export const translation: translationType = {
 		en: "Contact Us",
 		ua: "Звʼязатись",
 	},
+	contactTitle1: {
+		en: "Leave an application",
+		ua: "Залишити заявку",
+	},
+	contactTitle2: {
+		en: "Contacts",
+		ua: "Контакти",
+	},
+	contactText: {
+		en: "We are always in touch with you!",
+		ua: "Ми завжди з вами на звʼязку!",
+	},
+	contactSend: {
+		en: "Send",
+		ua: "Надіслати",
+	},
+	contactSuccess: {
+		en: "Application submitted",
+		ua: "Заявку відправлено",
+	},
+	contactError: {
+		en: "The application could not be sent",
+		ua: "Не вдалось відправити заявку",
+	},
+	contactName: {
+		en: "Name",
+		ua: "Прізвище Імʼя",
+	},
+	contactPhone: {
+		en: "Phone",
+		ua: "Номер телефону",
+	},
+	contactComment: {
+		en: "Comments...",
+		ua: "Коментар...",
+	},
+	contactAddress1: {
+		en: "Legal address:",
+		ua: "Юридична адреса:",
+	},
+	contactAddress2: {
+		en: "street Магдебурзького права, 2,",
+		ua: "Вул. Магдебурзького права, 2,",
+	},
+	contactAddress3: {
+		en: "Dnipro, Ukraine, 49035.",
+		ua: "м.Дніпро, Україна, 49000",
+	},
+	contactAddress4: {
+		en: "Address of production facilities: ",
+		ua: "Адреса потужностей (об’єкта)",
+	},
+	contactAddress5: {
+		en: "Yudina street 6,",
+		ua: "Виробництва: вул.Юдіна 6,",
+	},
+	contactAddress6: {
+		en: "Dnipro, Ukraine, 49035.",
+		ua: "м.Дніпро, Україна, 49035.",
+	},
 	// NAV
 	navServices: {
 		en: "Services",

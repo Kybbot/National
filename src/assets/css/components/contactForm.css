@@ -230,6 +230,7 @@
 	}
 
 	.footer__close {
+		position: absolute;
 		top: 44px;
 		right: 59px;
 		color: var(--accent);

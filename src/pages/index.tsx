@@ -68,7 +68,7 @@ const Home: NextPage<HomeProps> = ({ allArticles, productsInfo, categoriesList, 
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
-					<ContactForm active={isActive} closeModal={closeModal} />
+					<ContactForm active={isActive} closeModal={closeModal} language={language} translation={translation} />
 				</Modal>
 				<Banner language={language} translation={translation} openModal={openModal} />
 				<About language={language} translation={translation} />

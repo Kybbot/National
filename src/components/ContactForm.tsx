@@ -1,12 +1,16 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import Image from "next/image";
 
-type ContactForm = {
+import { translationType } from "../utils/translation";
+
+type ContactFormProps = {
 	active: boolean;
+	language: "en" | "ua";
+	translation: translationType;
 	closeModal: () => void;
 };
 
-export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
+export const ContactForm: FC<ContactFormProps> = ({ active, language, translation, closeModal }) => {
 	const initialState = {
 		name: "",
 		phone: "",
@@ -67,7 +71,7 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 				<div className="contactForm__container">
 					<div className="contactForm__wrapper">
 						<div className="contactForm__top">
-							<h2 className="contactForm__title">Залишити заявку</h2>
+							<h2 className="contactForm__title">{translation["contactTitle1"][language]}</h2>
 							<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
 								<svg width="23" height="22" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M2.17871 2L25.1787 24M2.17871 24L25.1787 2" stroke="currentColor" strokeWidth="4" />
@@ -80,7 +84,7 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 							required
 							minLength={3}
 							className="contactForm__input"
-							placeholder="Прізвище Імʼя"
+							placeholder={translation["contactName"][language]}
 							value={formState.name}
 							onChange={inputHandler}
 						/>
@@ -90,14 +94,14 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 							required
 							minLength={10}
 							className="contactForm__input"
-							placeholder="Номер телефону"
+							placeholder={translation["contactPhone"][language]}
 							value={formState.phone}
 							onChange={inputHandler}
 						/>
 						<textarea
 							className="contactForm__textarea"
 							name="comment"
-							placeholder="Коментар..."
+							placeholder={translation["contactComment"][language]}
 							value={formState.comment}
 							onChange={inputHandler}
 						></textarea>
@@ -108,14 +112,14 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 							type="submit"
 							disabled={success || error || !formState.name.length || !formState.phone.length}
 						>
-							Надіслати {loading && <span className="contactForm__spinner"></span>}
+							{translation["contactSend"][language]} {loading && <span className="contactForm__spinner"></span>}
 						</button>
-						{error && <p className="contactForm__error">Не вдалось відправити заявку</p>}
-						{success && <p className="contactForm__error">Заявку відправлено</p>}
+						{error && <p className="contactForm__error">{translation["contactError"][language]}</p>}
+						{success && <p className="contactForm__error">{translation["contactSuccess"][language]}</p>}
 					</div>
 					<div className="contactForm__contact">
-						<h2 className="contactForm__subtitle">КОНТАКТИ</h2>
-						<p className="contactForm__text">Ми завжди з вами на звʼязку!</p>
+						<h2 className="contactForm__subtitle">{translation["contactTitle2"][language]}</h2>
+						<p className="contactForm__text">{translation["contactText"][language]}</p>
 						<div className="contactForm__info">
 							<div className="contactForm__contacts">
 								<div className="contactForm__emails">
@@ -157,9 +161,9 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 											height="29"
 										/>
 										<span>
-											<span>Юридична адреса:</span>
-											<span>Вул. Магдебурзького права, 2,</span>
-											<span>м.Дніпро, Україна, 49000</span>
+											<span>{translation["contactAddress1"][language]}</span>
+											<span>{translation["contactAddress2"][language]}</span>
+											<span>{translation["contactAddress3"][language]}</span>
 										</span>
 									</p>
 									<p className="contactForm__address">
@@ -171,9 +175,9 @@ export const ContactForm: FC<ContactForm> = ({ active, closeModal }) => {
 											height="29"
 										/>
 										<span>
-											<span>Адреса потужностей (об’єкта)</span>
-											<span>Виробництва: вул.Юдіна 6,</span>
-											<span>м.Дніпро, Україна, 49035.</span>
+											<span>{translation["contactAddress4"][language]}</span>
+											<span>{translation["contactAddress5"][language]}</span>
+											<span>{translation["contactAddress6"][language]}</span>
 										</span>
 									</p>
 								</div>

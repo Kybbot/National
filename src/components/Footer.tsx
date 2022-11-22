@@ -108,9 +108,9 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 												height="29"
 											/>
 											<span>
-												<span>Юридична адреса:</span>
-												<span>Вул. Магдебурзького права, 2,</span>
-												<span>м.Дніпро, Україна, 49000</span>
+												<span>{translation["contactAddress1"][language]}</span>
+												<span>{translation["contactAddress2"][language]}</span>
+												<span>{translation["contactAddress3"][language]}</span>
 											</span>
 										</p>
 										<p className="footer__address">
@@ -122,9 +122,9 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 												height="29"
 											/>
 											<span>
-												<span>Адреса потужностей (об’єкта)</span>
-												<span>Виробництва: вул.Юдіна 6,</span>
-												<span>м.Дніпро, Україна, 49035.</span>
+												<span>{translation["contactAddress4"][language]}</span>
+												<span>{translation["contactAddress5"][language]}</span>
+												<span>{translation["contactAddress6"][language]}</span>
 											</span>
 										</p>
 									</div>
