@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { FC, memo, useState, MouseEvent } from "react";
+import React, { FC, memo, useState } from "react";
 
 import { translationType } from "../utils/translation";
 
@@ -21,10 +21,6 @@ export const Products: FC<ProductsProps> = memo(
 		const changeCategory = (name: string) => {
 			setCurrentCategory(name);
 			setCurrentSubCategory(Object.keys(productsInfo[name])[0]);
-		};
-
-		const changeProductItem = (event: MouseEvent<HTMLButtonElement>) => {
-			event.currentTarget.classList.toggle("product__item--active");
 		};
 
 		return (
@@ -73,7 +69,7 @@ export const Products: FC<ProductsProps> = memo(
 							</div>
 							<div className="products__items">
 								{productsInfo[currentCategory][currentSubCategory].map((item) => (
-									<button key={item.name} className="product__item" onClick={changeProductItem}>
+									<article key={item.name} className="product__item">
 										<div className="product__inner">
 											<div className="product__front">
 												<div className="product__text">
@@ -108,7 +104,7 @@ export const Products: FC<ProductsProps> = memo(
 													  ))}
 											</div>
 										</div>
-									</button>
+									</article>
 								))}
 							</div>
 						</div>

@@ -89,13 +89,9 @@
 }
 
 .product__item {
-	display: flex;
 	height: 117px;
 	perspective: 1000px;
 	position: relative;
-	padding: 0;
-	background-color: transparent;
-	border-style: none;
 }
 
 .product__inner {
@@ -107,14 +103,6 @@
 	background-color: var(--bg-color);
 	transition: transform 0.6s;
 	transform-style: preserve-3d;
-}
-
-.product__item.product__item--active .product__inner {
-	transform: rotateY(180deg);
-}
-
-.product__item.product__item--active .product__back {
-	transform: rotateY(-180deg);
 }
 
 .product__item:hover .product__inner {
