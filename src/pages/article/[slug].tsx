@@ -128,7 +128,7 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">
-					<ContactForm active={isActive} closeModal={closeModal} />
+					<ContactForm active={isActive} closeModal={closeModal} language={language} translation={translation} />
 				</Modal>
 				<div className="article">
 					<div className="container">
