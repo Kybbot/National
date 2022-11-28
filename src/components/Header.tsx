@@ -32,7 +32,9 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 				<div className="container">
 					<div className="header__section">
 						<Link href="/">
-							<Image src="/img/svg/preloader.svg" alt="National" className="header__logo" width="142" height="21" />
+							<svg className="header__logo" width="142" height="21" aria-label="National">
+								<use xlinkHref="/img/icons.svg#preloader" />
+							</svg>
 						</Link>
 						<div className="header__wrapper">
 							<nav className="header__nav">
@@ -74,7 +76,9 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 							</select>
 						</div>
 						<button type="button" className="header__btn" aria-label="Open menu" onClick={toggleMobileNav}>
-							<Image src="/img/svg/burger.svg" alt="National" width="25" height="19" aria-hidden="true" />
+							<svg width="25" height="19" aria-hidden="true">
+								<use xlinkHref="/img/icons.svg#burger" />
+							</svg>
 						</button>
 					</div>
 				</div>

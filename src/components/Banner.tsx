@@ -16,7 +16,9 @@ export const Banner: FC<BannerProps> = ({ language, translation, openModal }) =>
 		<section className="banner">
 			<div className="container">
 				<div className="banner__container">
-					<Image src="/img/names/red-name.svg" alt="National" className="banner__img" width="343" height="52" />
+					<svg className="banner__img" width="343" height="52" aria-hidden="true">
+						<use xlinkHref="/img/names.svg#redName" />
+					</svg>
 					<h1 className="banner__title">
 						{translation["bannerTitle1"][language]}{" "}
 						<span className="accent-text">{translation["bannerTitle2"][language]}</span>

@@ -45,7 +45,9 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 
 	return (
 		<section ref={sectionRef} className="blog" aria-labelledby="blog">
-			<Image className="blog__dec" src="/img/names/blog-name.svg" alt="" height="1715" width="262" aria-hidden="true" />
+			<svg className="blog__dec" height="1715" width="262" aria-hidden="true">
+				<use xlinkHref="/img/names.svg#blogName" />
+			</svg>
 			<div className="container">
 				<h2 className="blog__title" id="blog">
 					{translation["blogTitle"][language]}
@@ -62,13 +64,8 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 						aria-label="Prev 3 articles from blog"
 						onClick={prevPageHandler}
 					>
-						<svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M10.887 8.59338L2.13512 0.843587C1.96914 0.695627 1.75029 0.605713 1.51044 0.605713C0.991773 0.605713 0.57131 1.02618 0.57131 1.54484C0.57131 1.82678 0.695548 2.0797 0.892263 2.25184L8.09892 8.63337L0.867835 15.4163L0.867902 15.4164C0.685334 15.5877 0.571289 15.8312 0.571289 16.1013C0.571289 16.62 0.991752 17.0405 1.51042 17.0405C1.7639 17.0405 1.99392 16.94 2.16287 16.7768L10.887 8.59338Z"
-								fill="currentColor"
-							/>
+						<svg width="11" height="18" aria-hidden="true">
+							<use xlinkHref="/img/icons.svg#arrow" />
 						</svg>
 					</button>
 					<button
@@ -77,13 +74,8 @@ export const Blog: FC<BlogProps> = ({ articles, language, translation }) => {
 						aria-label="Next 3 articles from blog"
 						onClick={nextPageHandler}
 					>
-						<svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								fillRule="evenodd"
-								clipRule="evenodd"
-								d="M10.887 8.59338L2.13512 0.843587C1.96914 0.695627 1.75029 0.605713 1.51044 0.605713C0.991773 0.605713 0.57131 1.02618 0.57131 1.54484C0.57131 1.82678 0.695548 2.0797 0.892263 2.25184L8.09892 8.63337L0.867835 15.4163L0.867902 15.4164C0.685334 15.5877 0.571289 15.8312 0.571289 16.1013C0.571289 16.62 0.991752 17.0405 1.51042 17.0405C1.7639 17.0405 1.99392 16.94 2.16287 16.7768L10.887 8.59338Z"
-								fill="currentColor"
-							/>
+						<svg width="11" height="18" aria-hidden="true">
+							<use xlinkHref="/img/icons.svg#arrow" />
 						</svg>
 					</button>
 				</div>

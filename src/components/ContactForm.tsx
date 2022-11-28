@@ -73,8 +73,8 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 						<div className="contactForm__top">
 							<h2 className="contactForm__title">{translation["contactTitle1"][language]}</h2>
 							<button className="footer__close" type="button" aria-label="Close modal form" onClick={closeModal}>
-								<svg width="23" height="22" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M2.17871 2L25.1787 24M2.17871 24L25.1787 2" stroke="currentColor" strokeWidth="4" />
+								<svg width="23" height="22" aria-hidden="true">
+									<use xlinkHref="/img/icons.svg#close" />
 								</svg>
 							</button>
 						</div>
@@ -123,25 +123,17 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 						<div className="contactForm__info">
 							<div className="contactForm__contacts">
 								<div className="contactForm__emails">
-									<Image
-										className="contactForm__email-svg"
-										src="/img/contacts/email.svg"
-										alt="Email"
-										width="29"
-										height="29"
-									/>
+									<svg className="contactForm__email-svg" width="29" height="29" aria-hidden="true">
+										<use xlinkHref="/img/icons.svg#email" />
+									</svg>
 									<a href="mailto:ani@ani.ua" className="contactForm__email">
 										ani@ani.ua
 									</a>
 								</div>
 								<div className="contactForm__phones">
-									<Image
-										className="contactForm__email-svg"
-										src="/img/contacts/call.svg"
-										alt="Email"
-										width="29"
-										height="29"
-									/>
+									<svg className="contactForm__email-svg" width="29" height="29" aria-hidden="true">
+										<use xlinkHref="/img/icons.svg#call" />
+									</svg>
 									<div>
 										<a href="tel:+380567903807" className="contactForm__phone">
 											+380567903807
@@ -153,13 +145,9 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 								</div>
 								<div className="contactForm__addresses">
 									<p className="contactForm__address">
-										<Image
-											className="contactForm__email-svg"
-											src="/img/contacts/location.svg"
-											alt="Email"
-											width="29"
-											height="29"
-										/>
+										<svg className="contactForm__email-svg" width="29" height="29" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#location" />
+										</svg>
 										<span>
 											<span>{translation["contactAddress1"][language]}</span>
 											<span>{translation["contactAddress2"][language]}</span>
@@ -167,13 +155,9 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										</span>
 									</p>
 									<p className="contactForm__address">
-										<Image
-											className="contactForm__email-svg"
-											src="/img/contacts/location.svg"
-											alt="Email"
-											width="29"
-											height="29"
-										/>
+										<svg className="contactForm__email-svg" width="29" height="29" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#location" />
+										</svg>
 										<span>
 											<span>{translation["contactAddress4"][language]}</span>
 											<span>{translation["contactAddress5"][language]}</span>

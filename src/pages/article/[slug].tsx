@@ -160,13 +160,9 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 										data-title={copiedText}
 										onClick={copyToClipBoard}
 									>
-										<Image
-											className="article__social-img"
-											src="/img/socials/link.svg"
-											width="68"
-											height="68"
-											alt="Link"
-										/>
+										<svg className="article__social-img" width="68" height="68" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#link" />
+										</svg>
 									</button>
 									<a
 										href={`https://www.facebook.com/sharer/sharer.php?u=https%3A//${
@@ -209,13 +205,8 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 										className={`blog__nav blog__prev ${slugIndex === 0 ? `blog__nav--disabled` : `blog__active`}`}
 										aria-label="Prev 3 articles from blog"
 									>
-										<svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path
-												fillRule="evenodd"
-												clipRule="evenodd"
-												d="M10.887 8.59338L2.13512 0.843587C1.96914 0.695627 1.75029 0.605713 1.51044 0.605713C0.991773 0.605713 0.57131 1.02618 0.57131 1.54484C0.57131 1.82678 0.695548 2.0797 0.892263 2.25184L8.09892 8.63337L0.867835 15.4163L0.867902 15.4164C0.685334 15.5877 0.571289 15.8312 0.571289 16.1013C0.571289 16.62 0.991752 17.0405 1.51042 17.0405C1.7639 17.0405 1.99392 16.94 2.16287 16.7768L10.887 8.59338Z"
-												fill="currentColor"
-											/>
+										<svg width="11" height="18" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#arrow" />
 										</svg>
 									</Link>
 									<Link
@@ -229,13 +220,8 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 										}`}
 										aria-label="Next 3 articles from blog"
 									>
-										<svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path
-												fillRule="evenodd"
-												clipRule="evenodd"
-												d="M10.887 8.59338L2.13512 0.843587C1.96914 0.695627 1.75029 0.605713 1.51044 0.605713C0.991773 0.605713 0.57131 1.02618 0.57131 1.54484C0.57131 1.82678 0.695548 2.0797 0.892263 2.25184L8.09892 8.63337L0.867835 15.4163L0.867902 15.4164C0.685334 15.5877 0.571289 15.8312 0.571289 16.1013C0.571289 16.62 0.991752 17.0405 1.51042 17.0405C1.7639 17.0405 1.99392 16.94 2.16287 16.7768L10.887 8.59338Z"
-												fill="currentColor"
-											/>
+										<svg width="11" height="18" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#arrow" />
 										</svg>
 									</Link>
 								</div>

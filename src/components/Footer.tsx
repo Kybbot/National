@@ -16,19 +16,16 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 	return (
 		<>
 			<footer className="footer" id="contacts">
-				<Image
-					className="footer__dec"
-					src="/img/names/footer-name.svg"
-					alt=""
-					width="231"
-					height="512"
-					aria-hidden="true"
-				/>
+				<svg className="footer__dec" width="231" height="512" aria-hidden="true">
+					<use xlinkHref="/img/names.svg#footerName" />
+				</svg>
 				<div className="container">
 					<div className="footer__container">
 						<div className="footer__main">
 							<div className="footer__top">
-								<Image className="footer__logo" src="/img/svg/preloader.svg" alt="National" width="195" height="30" />
+								<svg className="footer__logo" width="195" height="30" aria-hidden="true">
+									<use xlinkHref="/img/icons.svg#preloader" />
+								</svg>
 								<ul className="footer__nav">
 									<li className="footer__elem">
 										<Link href="/#about" className="footer__link" scroll={false}>
@@ -70,25 +67,17 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 								<h2 className="footer__title">{translation["navContacts"][language]}</h2>
 								<div className="footer__contacts">
 									<div className="footer__emails">
-										<Image
-											className="footer__email-svg"
-											src="/img/contacts/email.svg"
-											alt="Email"
-											width="29"
-											height="29"
-										/>
+										<svg className="footer__email-svg" width="29" height="29" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#email" />
+										</svg>
 										<a href="mailto:ani@ani.ua" className="footer__email">
 											ani@ani.ua
 										</a>
 									</div>
 									<div className="footer__phones">
-										<Image
-											className="footer__email-svg"
-											src="/img/contacts/call.svg"
-											alt="Email"
-											width="29"
-											height="29"
-										/>
+										<svg className="footer__email-svg" width="29" height="29" aria-hidden="true">
+											<use xlinkHref="/img/icons.svg#call" />
+										</svg>
 										<div>
 											<a href="tel:+380567903807" className="footer__phone">
 												+380567903807
@@ -100,13 +89,9 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 									</div>
 									<div className="footer__addresses">
 										<p className="footer__address">
-											<Image
-												className="footer__email-svg"
-												src="/img/contacts/location.svg"
-												alt="Email"
-												width="29"
-												height="29"
-											/>
+											<svg className="footer__email-svg" width="29" height="29" aria-hidden="true">
+												<use xlinkHref="/img/icons.svg#location" />
+											</svg>
 											<span>
 												<span>{translation["contactAddress1"][language]}</span>
 												<span>{translation["contactAddress2"][language]}</span>
@@ -114,13 +99,9 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 											</span>
 										</p>
 										<p className="footer__address">
-											<Image
-												className="footer__email-svg"
-												src="/img/contacts/location.svg"
-												alt="Email"
-												width="29"
-												height="29"
-											/>
+											<svg className="footer__email-svg" width="29" height="29" aria-hidden="true">
+												<use xlinkHref="/img/icons.svg#location" />
+											</svg>
 											<span>
 												<span>{translation["contactAddress4"][language]}</span>
 												<span>{translation["contactAddress5"][language]}</span>
