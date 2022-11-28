@@ -5,7 +5,7 @@ import { ParsedUrlQuery } from "querystring";
 import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { ContactForm, Footer, Header, Modal } from "../../components";
+import { ContactForm, Footer, Header, Modal, Seo } from "../../components";
 
 import { useLanguage } from "../../hooks/useLanguage";
 import { useModal } from "../../hooks/useModal";
@@ -125,6 +125,7 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 
 	return (
 		<>
+			<Seo title={title} description={description} img={url} />
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">

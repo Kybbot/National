@@ -1,6 +1,18 @@
 import type { NextPage } from "next";
 
-import { About, Banner, Blog, Footer, Header, Modal, ContactForm, Partners, Services, Products } from "../components";
+import {
+	About,
+	Banner,
+	Blog,
+	Footer,
+	Header,
+	Modal,
+	ContactForm,
+	Partners,
+	Services,
+	Products,
+	Seo,
+} from "../components";
 
 import { getAllArticles, getProducts } from "../contentful";
 import { useModal } from "../hooks/useModal";
@@ -65,6 +77,7 @@ const Home: NextPage<HomeProps> = ({ allArticles, productsInfo, categoriesList, 
 
 	return (
 		<>
+			<Seo />
 			<Header language={language} translation={translation} changeLanguage={changeLanguage} />
 			<main>
 				<Modal overlay active={isActive} closeModal={closeModal} displayType="flex">

@@ -10,3 +10,4 @@ export * from "./Blog";
 export * from "./Footer";
 export * from "./Modal";
 export * from "./ContactForm";
+export * from "./Seo";
