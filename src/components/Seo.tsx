@@ -28,7 +28,9 @@ export const Seo: FC<SeoProps> = ({
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
-			<link rel="icon" href="/favicon.ico" />
+			<link rel="icon" type="image/jpg" sizes="16x16" href="/img/favicons/16х16.jpg" />
+			<link rel="icon" type="image/jpg" sizes="32x32" href="/img/favicons/32х32.jpg" />
+			<link rel="apple-touch-icon" sizes="228x228" href="/img/favicons/228х228.png" />
 
 			<meta name="theme-color" content="#cd2d3d" />
 		</Head>

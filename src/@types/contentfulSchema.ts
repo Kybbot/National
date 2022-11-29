@@ -331,6 +331,7 @@ export type AssetLinkingCollections = {
   articleCollection: Maybe<ArticleCollection>;
   entryCollection: Maybe<EntryCollection>;
   productCollection: Maybe<ProductCollection>;
+  serviceCollection: Maybe<ServiceCollection>;
 };
 
 
@@ -351,6 +352,14 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 
 
 export type AssetLinkingCollectionsProductCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type AssetLinkingCollectionsServiceCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']>;
   locale: InputMaybe<Scalars['String']>;
   preview: InputMaybe<Scalars['Boolean']>;
@@ -842,6 +851,8 @@ export type Query = {
   productCollection: Maybe<ProductCollection>;
   productSubcategory: Maybe<ProductSubcategory>;
   productSubcategoryCollection: Maybe<ProductSubcategoryCollection>;
+  service: Maybe<Service>;
+  serviceCollection: Maybe<ServiceCollection>;
 };
 
 
@@ -937,6 +948,159 @@ export type QueryProductSubcategoryCollectionArgs = {
   preview: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where: InputMaybe<ProductSubcategoryFilter>;
+};
+
+
+export type QueryServiceArgs = {
+  id: Scalars['String'];
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryServiceCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<ServiceOrder>>>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<ServiceFilter>;
+};
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type Service = Entry & {
+  __typename?: 'Service';
+  bgImg: Maybe<Asset>;
+  contentfulMetadata: ContentfulMetadata;
+  description: Maybe<Scalars['String']>;
+  icon: Maybe<Asset>;
+  linkedFrom: Maybe<ServiceLinkingCollections>;
+  stages: Maybe<ServiceStages>;
+  sys: Sys;
+  title: Maybe<Scalars['String']>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceBgImgArgs = {
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceDescriptionArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceIconArgs = {
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceLinkedFromArgs = {
+  allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceStagesArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceTitleArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+export type ServiceCollection = {
+  __typename?: 'ServiceCollection';
+  items: Array<Maybe<Service>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type ServiceFilter = {
+  AND: InputMaybe<Array<InputMaybe<ServiceFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<ServiceFilter>>>;
+  bgImg_exists: InputMaybe<Scalars['Boolean']>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  description: InputMaybe<Scalars['String']>;
+  description_contains: InputMaybe<Scalars['String']>;
+  description_exists: InputMaybe<Scalars['Boolean']>;
+  description_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description_not: InputMaybe<Scalars['String']>;
+  description_not_contains: InputMaybe<Scalars['String']>;
+  description_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  icon_exists: InputMaybe<Scalars['Boolean']>;
+  stages_contains: InputMaybe<Scalars['String']>;
+  stages_exists: InputMaybe<Scalars['Boolean']>;
+  stages_not_contains: InputMaybe<Scalars['String']>;
+  sys: InputMaybe<SysFilter>;
+  title: InputMaybe<Scalars['String']>;
+  title_contains: InputMaybe<Scalars['String']>;
+  title_exists: InputMaybe<Scalars['Boolean']>;
+  title_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not: InputMaybe<Scalars['String']>;
+  title_not_contains: InputMaybe<Scalars['String']>;
+  title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ServiceLinkingCollections = {
+  __typename?: 'ServiceLinkingCollections';
+  entryCollection: Maybe<EntryCollection>;
+};
+
+
+export type ServiceLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum ServiceOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
+export type ServiceStages = {
+  __typename?: 'ServiceStages';
+  json: Scalars['JSON'];
+  links: ServiceStagesLinks;
+};
+
+export type ServiceStagesAssets = {
+  __typename?: 'ServiceStagesAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type ServiceStagesEntries = {
+  __typename?: 'ServiceStagesEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type ServiceStagesLinks = {
+  __typename?: 'ServiceStagesLinks';
+  assets: ServiceStagesAssets;
+  entries: ServiceStagesEntries;
 };
 
 export type Sys = {
