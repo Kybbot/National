@@ -1,6 +1,7 @@
 export type CategoriesListType = {
 	name: string;
 	nameEn: string;
+	order: number;
 }[];
 
 export type SubCategoriesList = {

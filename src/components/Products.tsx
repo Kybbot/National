@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from "react";
+import React, { FC, memo, useMemo, useState } from "react";
 import Image from "next/image";
 
 import { translationType } from "../utils/translation";
@@ -18,6 +18,12 @@ export const Products: FC<ProductsProps> = memo(
 		const [currentCategory, setCurrentCategory] = useState<string>(Object.keys(productsInfo)[0]);
 		const [currentSubCategory, setCurrentSubCategory] = useState<string>(Object.keys(productsInfo[currentCategory])[0]);
 
+		const sortedCategoriesList = useMemo(() => {
+			const arr = [...categoriesList];
+
+			return arr.sort((a, b) => a.order - b.order);
+		}, [categoriesList]);
+
 		const changeCategory = (name: string) => {
 			setCurrentCategory(name);
 			setCurrentSubCategory(Object.keys(productsInfo[name])[0]);
@@ -31,7 +37,7 @@ export const Products: FC<ProductsProps> = memo(
 					</h2>
 				</div>
 				<div className="products__nav scrollbar">
-					{categoriesList.map((item) => {
+					{sortedCategoriesList.map((item) => {
 						if (Object.prototype.hasOwnProperty.call(productsInfo, item.name)) {
 							return (
 								<button

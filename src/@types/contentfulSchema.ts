@@ -606,6 +606,7 @@ export type ProductCategory = Entry & {
   contentfulMetadata: ContentfulMetadata;
   linkedFrom: Maybe<ProductCategoryLinkingCollections>;
   name: Maybe<Scalars['String']>;
+  order: Maybe<Scalars['Int']>;
   sys: Sys;
 };
 
@@ -618,6 +619,12 @@ export type ProductCategoryLinkedFromArgs = {
 
 /** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
 export type ProductCategoryNameArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+/** Категорія продукту [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/productCategory) */
+export type ProductCategoryOrderArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
@@ -640,6 +647,15 @@ export type ProductCategoryFilter = {
   name_not: InputMaybe<Scalars['String']>;
   name_not_contains: InputMaybe<Scalars['String']>;
   name_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  order: InputMaybe<Scalars['Int']>;
+  order_exists: InputMaybe<Scalars['Boolean']>;
+  order_gt: InputMaybe<Scalars['Int']>;
+  order_gte: InputMaybe<Scalars['Int']>;
+  order_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  order_lt: InputMaybe<Scalars['Int']>;
+  order_lte: InputMaybe<Scalars['Int']>;
+  order_not: InputMaybe<Scalars['Int']>;
+  order_not_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   sys: InputMaybe<SysFilter>;
 };
 
@@ -677,6 +693,8 @@ export type ProductCategoryLinkingCollectionsProductSubcategoryCollectionArgs = 
 export enum ProductCategoryOrder {
   NameAsc = 'name_ASC',
   NameDesc = 'name_DESC',
+  OrderAsc = 'order_ASC',
+  OrderDesc = 'order_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1193,6 +1211,15 @@ export type CfProductCategoryNestedFilter = {
   name_not: InputMaybe<Scalars['String']>;
   name_not_contains: InputMaybe<Scalars['String']>;
   name_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  order: InputMaybe<Scalars['Int']>;
+  order_exists: InputMaybe<Scalars['Boolean']>;
+  order_gt: InputMaybe<Scalars['Int']>;
+  order_gte: InputMaybe<Scalars['Int']>;
+  order_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  order_lt: InputMaybe<Scalars['Int']>;
+  order_lte: InputMaybe<Scalars['Int']>;
+  order_not: InputMaybe<Scalars['Int']>;
+  order_not_in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   sys: InputMaybe<SysFilter>;
 };
 
@@ -1231,7 +1258,7 @@ export type GetArticleBySlugQuery = { __typename?: 'Query', articleCollection: {
 export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };
+export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, order: number, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };
 
 export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 

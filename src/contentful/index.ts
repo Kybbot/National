@@ -108,6 +108,7 @@ export const getProducts = async () => {
 				items {
 					name
 					nameEn: name(locale: "en-US")
+					order
 				}
 			}
 			subCategoriesList: productSubcategoryCollection {
