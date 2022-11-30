@@ -42,7 +42,7 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 		const data = JSON.stringify(formState);
 
 		try {
-			const response = await fetch("https://formsubmit.co/ajax/d9c7147fec2db3447c5b62151bd214b3", {
+			const response = await fetch("https://formsubmit.co/ajax/denisandreev1611@gmail.com", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
