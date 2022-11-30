@@ -51,7 +51,8 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 
 	const btnRef = useRef<HTMLButtonElement>(null);
 
-	const { title, titleEn, description, descriptionEn, bgImg, stages, stagesEn } = service.serviceCollection.items[0];
+	const { title, titleEn, description, descriptionEn, subTitle, subTitleEn, bgImg, stages, stagesEn } =
+		service.serviceCollection.items[0];
 
 	function renderOptions(json: any) {
 		const headlinesMap = new Map<
@@ -73,7 +74,6 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 
 		return {
 			renderNode: {
-				[BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => <h2 className="service__h2">{children}</h2>,
 				[BLOCKS.HEADING_3]: (node: any, children: ReactNode) => {
 					const index = headlinesMap.get(node.content[0].value);
 
@@ -105,6 +105,7 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 					<div className="container">
 						<article className="service__article">
 							<p className="service__description">{language === "ua" ? description : descriptionEn}</p>
+							<h2 className="service__h2">{language === "ua" ? subTitle : subTitleEn}</h2>
 							<div className="service__content">
 								{documentToReactComponents(
 									language === "ua" ? stages.json : stagesEn.json,

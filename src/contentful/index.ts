@@ -217,6 +217,8 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 					bgImg {
 						url
 					}
+					subTitle
+					subTitleEn: subTitle(locale: "en-US")
 					stages {
 						json
 					}
