@@ -1,8 +1,8 @@
 import React, { FC, RefObject, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { translationType } from "../utils/translation";
-import Link from "next/link";
 
 type FooterProps = {
 	language: "en" | "ua";

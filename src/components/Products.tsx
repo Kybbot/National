@@ -1,5 +1,5 @@
-import Image from "next/image";
 import React, { FC, memo, useState } from "react";
+import Image from "next/image";
 
 import { translationType } from "../utils/translation";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { onTab } from "../utils/onTab";
 
@@ -21,7 +21,7 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
 	const wrapperRef = React.useRef<HTMLDivElement>(null);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		let handleModalKeyboard: (event: KeyboardEvent) => void;
 
 		if (active) {
@@ -52,7 +52,7 @@ export const Modal: React.FC<ModalProps> = ({
 		return () => document.removeEventListener("keydown", handleModalKeyboard);
 	}, [active, closeModal, displayType, dependencies]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (active) {
 			wrapperRef.current?.querySelector("button")?.focus();
 		}
