@@ -14,18 +14,19 @@ import {
 	Seo,
 } from "../components";
 
-import { getAllArticles, getProducts } from "../contentful";
+import { getAllArticles, getAllServices, getProducts } from "../contentful";
 import { useModal } from "../hooks/useModal";
 import { useLanguage } from "../hooks/useLanguage";
 
 import { translation } from "../utils/translation";
 
-import { GetAllArticlesQuery } from "../@types/contentfulSchema";
+import { GetAllArticlesQuery, GetAllServicesQuery } from "../@types/contentfulSchema";
 import { CategoriesListType, ProductsInfoType, ProductType, SubCategoriesList } from "../@types/products";
 
 export const getStaticProps = async () => {
-	const allArticles = await getAllArticles();
+	const services = await getAllServices();
 	const products = await getProducts();
+	const allArticles = await getAllArticles();
 
 	const categoriesList = products.categoriesList.items;
 	const subCategoriesList = products.subCategoriesList.items;
@@ -56,6 +57,7 @@ export const getStaticProps = async () => {
 
 	return {
 		props: {
+			services,
 			allArticles,
 			productsInfo,
 			categoriesList,
@@ -65,13 +67,14 @@ export const getStaticProps = async () => {
 };
 
 type HomeProps = {
+	services: GetAllServicesQuery;
 	allArticles: GetAllArticlesQuery;
 	productsInfo: ProductsInfoType;
 	categoriesList: CategoriesListType;
 	subCategoriesList: SubCategoriesList;
 };
 
-const Home: NextPage<HomeProps> = ({ allArticles, productsInfo, categoriesList, subCategoriesList }) => {
+const Home: NextPage<HomeProps> = ({ services, allArticles, productsInfo, categoriesList, subCategoriesList }) => {
 	const { isActive, closeModal, openModal } = useModal();
 	const { language, changeLanguage } = useLanguage();
 
@@ -85,7 +88,7 @@ const Home: NextPage<HomeProps> = ({ allArticles, productsInfo, categoriesList, 
 				</Modal>
 				<Banner language={language} translation={translation} openModal={openModal} />
 				<About language={language} translation={translation} />
-				<Services language={language} translation={translation} openModal={openModal} />
+				<Services services={services} language={language} translation={translation} openModal={openModal} />
 				<Products
 					language={language}
 					translation={translation}

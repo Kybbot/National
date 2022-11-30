@@ -4,14 +4,18 @@ import Link from "next/link";
 
 import { translationType } from "../utils/translation";
 
+import { GetAllServicesQuery } from "../@types/contentfulSchema";
+
 type ServicesProps = {
+	services: GetAllServicesQuery;
 	language: "en" | "ua";
 	translation: translationType;
 	openModal: (openBtnRef: RefObject<HTMLButtonElement>) => void;
 };
 
-export const Services: FC<ServicesProps> = ({ language, translation, openModal }) => {
+export const Services: FC<ServicesProps> = ({ services, language, translation, openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
+	console.log(services);
 
 	return (
 		<section className="services" aria-labelledby="services">
@@ -20,110 +24,21 @@ export const Services: FC<ServicesProps> = ({ language, translation, openModal }
 					{translation["servicesTitle"][language]}
 				</h2>
 				<div className="services__container">
-					<div className="services__item">
-						<Image
-							src="/img/services/create.svg"
-							className="services__svg"
-							alt=""
-							width="46"
-							height="45"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem1"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/drinks.svg"
-							className="services__svg"
-							alt=""
-							width="57"
-							height="46"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem2"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/conservation.svg"
-							className="services__svg"
-							alt=""
-							width="50"
-							height="50"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem3"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/food.svg"
-							alt=""
-							className="services__svg"
-							width="57"
-							height="51"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem4"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/honey.svg"
-							alt=""
-							className="services__svg"
-							width="50"
-							height="41"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem5"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/sauces.svg"
-							alt=""
-							className="services__svg"
-							width="49"
-							height="53"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem6"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/package.svg"
-							alt=""
-							className="services__svg"
-							width="38"
-							height="49"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem7"][language]}
-						</Link>
-					</div>
-					<div className="services__item">
-						<Image
-							src="/img/services/packing.svg"
-							alt=""
-							className="services__svg"
-							width="52"
-							height="52"
-							aria-hidden="true"
-						/>
-						<Link href="/" className="services__link">
-							{translation["servicesItem8"][language]}
-						</Link>
-					</div>
+					{services.serviceCollection.items.map((item) => (
+						<div className="services__item" key={item.title}>
+							<Image
+								src={item.icon.url}
+								className="services__svg"
+								alt=""
+								width={item.icon.width / 1.5}
+								height={item.icon.height / 1.5}
+								aria-hidden="true"
+							/>
+							<Link href={`/service/${item.slug}`} className="services__link">
+								{language === "ua" ? item.title : item.titleEn}
+							</Link>
+						</div>
+					))}
 				</div>
 				<button ref={btnRef} className="btn services__btn" type="button" onClick={() => openModal(btnRef)}>
 					{translation["contactBtn"][language]}

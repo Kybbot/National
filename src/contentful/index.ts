@@ -7,6 +7,8 @@ import {
 	GetAllArticlesQueryVariables,
 	GetAllArticlesSlugsQuery,
 	GetAllArticlesSlugsQueryVariables,
+	GetAllServicesQuery,
+	GetAllServicesQueryVariables,
 	GetArticleBySlugQuery,
 	GetArticleBySlugQueryVariables,
 	GetProductsQuery,
@@ -149,6 +151,31 @@ export const getProducts = async () => {
 
 	const { data } = await apolloClient.query<GetProductsQuery, GetProductsQueryVariables>({
 		query: products,
+	});
+
+	return data;
+};
+
+export const getAllServices = async () => {
+	const allServices = gql`
+		query getAllServices {
+			serviceCollection {
+				items {
+					title
+					titleEn: title(locale: "en-US")
+					slug
+					icon {
+						url
+						width
+						height
+					}
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GetAllServicesQuery, GetAllServicesQueryVariables>({
+		query: allServices,
 	});
 
 	return data;

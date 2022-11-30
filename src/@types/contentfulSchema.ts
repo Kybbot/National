@@ -975,6 +975,7 @@ export type Service = Entry & {
   description: Maybe<Scalars['String']>;
   icon: Maybe<Asset>;
   linkedFrom: Maybe<ServiceLinkingCollections>;
+  slug: Maybe<Scalars['String']>;
   stages: Maybe<ServiceStages>;
   sys: Sys;
   title: Maybe<Scalars['String']>;
@@ -1004,6 +1005,12 @@ export type ServiceIconArgs = {
 /** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
 export type ServiceLinkedFromArgs = {
   allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
+export type ServiceSlugArgs = {
+  locale: InputMaybe<Scalars['String']>;
 };
 
 
@@ -1039,6 +1046,13 @@ export type ServiceFilter = {
   description_not_contains: InputMaybe<Scalars['String']>;
   description_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   icon_exists: InputMaybe<Scalars['Boolean']>;
+  slug: InputMaybe<Scalars['String']>;
+  slug_contains: InputMaybe<Scalars['String']>;
+  slug_exists: InputMaybe<Scalars['Boolean']>;
+  slug_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  slug_not: InputMaybe<Scalars['String']>;
+  slug_not_contains: InputMaybe<Scalars['String']>;
+  slug_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   stages_contains: InputMaybe<Scalars['String']>;
   stages_exists: InputMaybe<Scalars['Boolean']>;
   stages_not_contains: InputMaybe<Scalars['String']>;
@@ -1066,6 +1080,8 @@ export type ServiceLinkingCollectionsEntryCollectionArgs = {
 };
 
 export enum ServiceOrder {
+  SlugAsc = 'slug_ASC',
+  SlugDesc = 'slug_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1200,3 +1216,8 @@ export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetProductsQuery = { __typename?: 'Query', categoriesList: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, nameEn: string }> }, subCategoriesList: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string, nameEn: string, category: { __typename?: 'ProductCategory', name: string } }> }, categories: { __typename?: 'ProductCategoryCollection', items: Array<{ __typename?: 'ProductCategory', name: string, linkedFrom: { __typename?: 'ProductCategoryLinkingCollections', productSubcategoryCollection: { __typename?: 'ProductSubcategoryCollection', items: Array<{ __typename?: 'ProductSubcategory', name: string }> } } }> }, products: { __typename?: 'ProductCollection', items: Array<{ __typename?: 'Product', name: string, quantity: string, info: any, nameEn: string, quantityEn: string, infoEn: any, image: { __typename?: 'Asset', url: string }, category: { __typename?: 'ProductCategory', name: string }, subcategory: { __typename?: 'ProductSubcategory', name: string } }> } };
+
+export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllServicesQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, slug: string, titleEn: string, icon: { __typename?: 'Asset', url: string, width: number, height: number } }> } };

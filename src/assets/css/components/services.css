@@ -99,48 +99,13 @@
 
 	.services__item {
 		height: 133px;
-		padding: 0 0 0 65px;
+		padding: 0 10px 0 65px;
 		gap: 40px;
 	}
 
-	.services__item:nth-child(1) > .services__svg {
-		width: 68px;
-		height: 67px;
-	}
-
-	.services__item:nth-child(2) > .services__svg {
-		width: 85px;
-		height: 69px;
-	}
-
-	.services__item:nth-child(3) > .services__svg {
-		width: 74px;
-		height: 74px;
-	}
-
-	.services__item:nth-child(4) > .services__svg {
-		width: 84px;
-		height: 76px;
-	}
-
-	.services__item:nth-child(5) > .services__svg {
-		width: 75px;
-		height: 62px;
-	}
-
-	.services__item:nth-child(6) > .services__svg {
-		width: 74px;
-		height: 79px;
-	}
-
-	.services__item:nth-child(7) > .services__svg {
-		width: 56px;
-		height: 74px;
-	}
-
-	.services__item:nth-child(8) > .services__svg {
-		width: 78px;
-		height: 78px;
+	.services__item > .services__svg {
+		width: auto;
+		height: 47%;
 	}
 
 	.services__item > .services__link {
