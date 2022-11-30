@@ -1221,3 +1221,15 @@ export type GetAllServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAllServicesQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, slug: string, titleEn: string, icon: { __typename?: 'Asset', url: string, width: number, height: number } }> } };
+
+export type GetAllServicesSlugsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllServicesSlugsQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', slug: string }> } };
+
+export type GeServiceBySlugQueryVariables = Exact<{
+  slug: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GeServiceBySlugQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, description: string, titleEn: string, descriptionEn: string, bgImg: { __typename?: 'Asset', url: string }, stages: { __typename?: 'ServiceStages', json: any }, stagesEn: { __typename?: 'ServiceStages', json: any } }> } };

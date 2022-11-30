@@ -3,12 +3,16 @@ import { gql } from "@apollo/client";
 import { apolloClient } from "./apolloClient";
 
 import {
+	GeServiceBySlugQuery,
+	GeServiceBySlugQueryVariables,
 	GetAllArticlesQuery,
 	GetAllArticlesQueryVariables,
 	GetAllArticlesSlugsQuery,
 	GetAllArticlesSlugsQueryVariables,
 	GetAllServicesQuery,
 	GetAllServicesQueryVariables,
+	GetAllServicesSlugsQuery,
+	GetAllServicesSlugsQueryVariables,
 	GetArticleBySlugQuery,
 	GetArticleBySlugQueryVariables,
 	GetProductsQuery,
@@ -176,6 +180,59 @@ export const getAllServices = async () => {
 
 	const { data } = await apolloClient.query<GetAllServicesQuery, GetAllServicesQueryVariables>({
 		query: allServices,
+	});
+
+	return data;
+};
+
+export const getAllServicesSlugs = async () => {
+	const allServicesSlugs = gql`
+		query getAllServicesSlugs {
+			serviceCollection {
+				items {
+					slug
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GetAllServicesSlugsQuery, GetAllServicesSlugsQueryVariables>({
+		query: allServicesSlugs,
+	});
+
+	return data;
+};
+
+export const geServiceBySlug = async (slug: string | string[]) => {
+	const oneSlug = typeof slug === "string" ? slug : slug[0];
+
+	const serviceBySlug = gql`
+		query geServiceBySlug($slug: String) {
+			serviceCollection(where: { slug: $slug }, limit: 1) {
+				items {
+					title
+					titleEn: title(locale: "en-US")
+					description
+					descriptionEn: description(locale: "en-US")
+					bgImg {
+						url
+					}
+					stages {
+						json
+					}
+					stagesEn: stages(locale: "en-US") {
+						json
+					}
+				}
+			}
+		}
+	`;
+
+	const { data } = await apolloClient.query<GeServiceBySlugQuery, GeServiceBySlugQueryVariables>({
+		query: serviceBySlug,
+		variables: {
+			slug: oneSlug,
+		},
 	});
 
 	return data;

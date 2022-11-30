@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import Image from "next/image";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -15,7 +16,6 @@ import { getAllArticlesSlugs, getArticleBySlug } from "../../contentful";
 import { translation } from "../../utils/translation";
 
 import { GetAllArticlesSlugsQuery, GetArticleBySlugQuery } from "../../@types/contentfulSchema";
-import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await getAllArticlesSlugs();

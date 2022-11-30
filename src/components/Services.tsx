@@ -15,7 +15,6 @@ type ServicesProps = {
 
 export const Services: FC<ServicesProps> = ({ services, language, translation, openModal }) => {
 	const btnRef = useRef<HTMLButtonElement>(null);
-	console.log(services);
 
 	return (
 		<section className="services" aria-labelledby="services">
