@@ -24,6 +24,17 @@ export const Products: FC<ProductsProps> = memo(
 			return arr.sort((a, b) => a.order - b.order);
 		}, [categoriesList]);
 
+		const sortedSubCategoriesList = useMemo(() => {
+			const arr = [...subCategoriesList];
+
+			const filteredArr = arr.filter((item) => item.category.name === currentCategory);
+			const trueOrderOfSubCategories = Object.keys(productsInfo[currentCategory]);
+
+			return filteredArr.sort(
+				(a, b) => trueOrderOfSubCategories.indexOf(a.name) - trueOrderOfSubCategories.indexOf(b.name)
+			);
+		}, [productsInfo, subCategoriesList, currentCategory]);
+
 		const changeCategory = (name: string) => {
 			setCurrentCategory(name);
 			setCurrentSubCategory(Object.keys(productsInfo[name])[0]);
@@ -56,21 +67,19 @@ export const Products: FC<ProductsProps> = memo(
 					<div className="container container--small">
 						<div className="products__container">
 							<div className="products__subnav">
-								{subCategoriesList.map((item) => {
-									if (item.category.name === currentCategory) {
-										return (
-											<button
-												key={item.name}
-												className={`products__subnav-btn ${
-													item.name === currentSubCategory && "products__subnav-btn--active"
-												}`}
-												type="button"
-												onClick={() => setCurrentSubCategory(item.name)}
-											>
-												{language === "ua" ? item.name : item.nameEn}
-											</button>
-										);
-									}
+								{sortedSubCategoriesList.map((item) => {
+									return (
+										<button
+											key={item.name}
+											className={`products__subnav-btn ${
+												item.name === currentSubCategory && "products__subnav-btn--active"
+											}`}
+											type="button"
+											onClick={() => setCurrentSubCategory(item.name)}
+										>
+											{language === "ua" ? item.name : item.nameEn}
+										</button>
+									);
 								})}
 							</div>
 							<div className="products__items">
