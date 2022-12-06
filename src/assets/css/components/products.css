@@ -101,7 +101,7 @@
 	height: 100%;
 	border-radius: 10px;
 	background-color: var(--bg-color);
-	transition: transform 0.6s;
+	transition: all 0.3s ease;
 	transform-style: preserve-3d;
 }
 
@@ -178,8 +178,8 @@
 .product__name,
 .product__value {
 	display: inline;
-	font-size: 12px;
-	line-height: 14px;
+	font-size: 10px;
+	line-height: 12px;
 	font-weight: 500;
 	margin: 0;
 }
@@ -245,6 +245,12 @@
 	}
 
 	.product__amount {
+		font-size: 12px;
+		line-height: 14px;
+	}
+
+	.product__name,
+	.product__value {
 		font-size: 12px;
 		line-height: 14px;
 	}
@@ -351,7 +357,7 @@
 	.product__name,
 	.product__value {
 		display: inline;
-		font-size: 20px;
-		line-height: 22px;
+		font-size: 18px;
+		line-height: 20px;
 	}
 }
