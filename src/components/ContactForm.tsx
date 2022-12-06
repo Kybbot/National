@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import Image from "next/image";
 
 import { translationType } from "../utils/translation";
+import { socials } from "../constants";
 
 type ContactFormProps = {
 	active: boolean;
@@ -42,7 +43,7 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 		const data = JSON.stringify(formState);
 
 		try {
-			const response = await fetch("https://formsubmit.co/ajax/denisandreev1611@gmail.com", {
+			const response = await fetch("https://formsubmit.co/ajax/ani@ani.ua", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -167,7 +168,7 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 								</div>
 							</div>
 							<div className="contactForm__socials">
-								<a href="#" className="contactForm__social">
+								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
 									<Image
 										className="contactForm__social-img"
 										src="/img/socials/facebook-red.png"
@@ -176,31 +177,31 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										alt="Facebook"
 									/>
 								</a>
-								<a href="#" className="contactForm__social">
+								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
 									<Image
 										className="contactForm__social-img"
 										src="/img/socials/youtube-red.png"
 										width="44"
 										height="44"
-										alt="Facebook"
+										alt="Youtube"
 									/>
 								</a>
-								<a href="#" className="contactForm__social">
+								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
 									<Image
 										className="contactForm__social-img"
 										src="/img/socials/instagram-red.png"
 										width="44"
 										height="44"
-										alt="Facebook"
+										alt="Instagram"
 									/>
 								</a>
-								<a href="#" className="contactForm__social">
+								<a href={socials.telegram} className="contactForm__social" target="_blank" rel="noreferrer noopener">
 									<Image
 										className="contactForm__social-img"
 										src="/img/socials/telegram-red.png"
 										width="44"
 										height="44"
-										alt="Facebook"
+										alt="Telegram"
 									/>
 								</a>
 							</div>

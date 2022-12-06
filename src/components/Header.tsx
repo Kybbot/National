@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { translationType } from "../utils/translation";
+import { socials } from "../constants";
 
 type HeaderProps = {
 	language: "en" | "ua";
@@ -128,17 +129,17 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 					</option>
 				</select>
 				<div className="header__socials">
-					<a href="#">
+					<a href="#" target="_blank" rel="noreferrer noopener">
 						<Image src="/img/socials/facebook.png" width="44" height="44" alt="Facebook" />
 					</a>
-					<a href="#">
-						<Image src="/img/socials/youtube.png" width="44" height="44" alt="Facebook" />
+					<a href="#" target="_blank" rel="noreferrer noopener">
+						<Image src="/img/socials/youtube.png" width="44" height="44" alt="Youtube" />
 					</a>
-					<a href="#">
-						<Image src="/img/socials/instagram.png" width="44" height="44" alt="Facebook" />
+					<a href="#" target="_blank" rel="noreferrer noopener">
+						<Image src="/img/socials/instagram.png" width="44" height="44" alt="Instagram" />
 					</a>
-					<a href="#">
-						<Image src="/img/socials/telegram.png" width="44" height="44" alt="Facebook" />
+					<a href={socials.telegram} target="_blank" rel="noreferrer noopener">
+						<Image src="/img/socials/telegram.png" width="44" height="44" alt="Telegram" />
 					</a>
 				</div>
 			</div>

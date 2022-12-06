@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { translationType } from "../utils/translation";
+import { socials } from "../constants";
 
 type FooterProps = {
 	language: "en" | "ua";
@@ -111,7 +112,7 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 									</div>
 								</div>
 								<div className="footer__socials">
-									<a href="#" className="footer__social">
+									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
 										<Image
 											className="footer__social-img"
 											src="/img/socials/facebook.png"
@@ -120,31 +121,31 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 											alt="Facebook"
 										/>
 									</a>
-									<a href="#" className="footer__social">
+									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
 										<Image
 											className="footer__social-img"
 											src="/img/socials/youtube.png"
 											width="44"
 											height="44"
-											alt="Facebook"
+											alt="Youtube"
 										/>
 									</a>
-									<a href="#" className="footer__social">
+									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
 										<Image
 											className="footer__social-img"
 											src="/img/socials/instagram.png"
 											width="44"
 											height="44"
-											alt="Facebook"
+											alt="Instagram"
 										/>
 									</a>
-									<a href="#" className="footer__social">
+									<a href={socials.telegram} className="footer__social" target="_blank" rel="noreferrer noopener">
 										<Image
 											className="footer__social-img"
 											src="/img/socials/telegram.png"
 											width="44"
 											height="44"
-											alt="Facebook"
+											alt="Telegram"
 										/>
 									</a>
 								</div>
