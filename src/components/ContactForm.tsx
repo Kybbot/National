@@ -177,24 +177,6 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										alt="Facebook"
 									/>
 								</a>
-								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
-									<Image
-										className="contactForm__social-img"
-										src="/img/socials/youtube-red.png"
-										width="44"
-										height="44"
-										alt="Youtube"
-									/>
-								</a>
-								<a href="#" className="contactForm__social" target="_blank" rel="noreferrer noopener">
-									<Image
-										className="contactForm__social-img"
-										src="/img/socials/instagram-red.png"
-										width="44"
-										height="44"
-										alt="Instagram"
-									/>
-								</a>
 								<a href={socials.telegram} className="contactForm__social" target="_blank" rel="noreferrer noopener">
 									<Image
 										className="contactForm__social-img"

@@ -121,24 +121,6 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 											alt="Facebook"
 										/>
 									</a>
-									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
-										<Image
-											className="footer__social-img"
-											src="/img/socials/youtube.png"
-											width="44"
-											height="44"
-											alt="Youtube"
-										/>
-									</a>
-									<a href="#" className="footer__social" target="_blank" rel="noreferrer noopener">
-										<Image
-											className="footer__social-img"
-											src="/img/socials/instagram.png"
-											width="44"
-											height="44"
-											alt="Instagram"
-										/>
-									</a>
 									<a href={socials.telegram} className="footer__social" target="_blank" rel="noreferrer noopener">
 										<Image
 											className="footer__social-img"

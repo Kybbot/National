@@ -132,12 +132,6 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 					<a href="#" target="_blank" rel="noreferrer noopener">
 						<Image src="/img/socials/facebook.png" width="44" height="44" alt="Facebook" />
 					</a>
-					<a href="#" target="_blank" rel="noreferrer noopener">
-						<Image src="/img/socials/youtube.png" width="44" height="44" alt="Youtube" />
-					</a>
-					<a href="#" target="_blank" rel="noreferrer noopener">
-						<Image src="/img/socials/instagram.png" width="44" height="44" alt="Instagram" />
-					</a>
 					<a href={socials.telegram} target="_blank" rel="noreferrer noopener">
 						<Image src="/img/socials/telegram.png" width="44" height="44" alt="Telegram" />
 					</a>

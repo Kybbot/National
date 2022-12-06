@@ -120,7 +120,7 @@
 .footer__socials {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	gap: 10px;
 }
 
 .rights {
@@ -234,7 +234,6 @@
 
 	.footer__socials {
 		flex-direction: row;
-		justify-content: space-around;
 	}
 
 	.footer__social {

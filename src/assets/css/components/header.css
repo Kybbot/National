@@ -128,7 +128,7 @@
 .header__socials {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	gap: 10px;
 	padding: 0 25px 19px 19px;
 }
 
