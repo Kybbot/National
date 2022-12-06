@@ -119,6 +119,14 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 						</li>
 					</ul>
 				</nav>
+				<select id="language" className="header__lng header__lng--mobile" value={language} onChange={changeLanguage}>
+					<option className="header__option" value="en">
+						ENG
+					</option>
+					<option className="header__option" value="ua">
+						УКР
+					</option>
+				</select>
 				<div className="header__socials">
 					<a href="#">
 						<Image src="/img/socials/facebook.png" width="44" height="44" alt="Facebook" />
