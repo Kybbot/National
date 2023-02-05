@@ -160,6 +160,12 @@
 	aspect-ratio: 1;
 }
 
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+	img[loading="lazy"] {
+		clip-path: inset(0.6px);
+	}
+}
+
 .product__back {
 	display: flex;
 	flex-direction: column;
