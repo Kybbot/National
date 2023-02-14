@@ -213,8 +213,12 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 				items {
 					title
 					titleEn: title(locale: "en-US")
-					description
-					descriptionEn: description(locale: "en-US")
+					description {
+						json
+					}
+					descriptionEn: description(locale: "en-US") {
+						json
+					}
 					bgImg {
 						url
 					}

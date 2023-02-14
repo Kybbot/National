@@ -54,7 +54,34 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 	const { title, titleEn, description, descriptionEn, subTitle, subTitleEn, bgImg, stages, stagesEn } =
 		service.serviceCollection.items[0];
 
-	function renderOptions(json: any) {
+	function renderOptionsForDescription() {
+		return {
+			renderNode: {
+				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => {
+					return <p className="article__text">{children}</p>;
+				},
+				[BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => (
+					<div className="article__wrapper">
+						<h2 className="article__h2">{children}</h2>
+						<div className="article__dec"></div>
+					</div>
+				),
+				[BLOCKS.HEADING_3]: (node: Block | Inline, children: ReactNode) => (
+					<div className="article__wrapper">
+						<h3 className="article__h3">{children}</h3>
+						<div className="article__dec"></div>
+					</div>
+				),
+				[BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => <ul className="article__list">{children}</ul>,
+				[BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className="article__list">{children}</ol>,
+				[BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
+					<li className="article__item">{children}</li>
+				),
+			},
+		};
+	}
+
+	function renderOptionsForStages(json: any) {
 		const headlinesMap = new Map<
 			string,
 			{
@@ -104,14 +131,21 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 					</div>
 					<div className="container">
 						<article className="service__article">
-							<p className="service__description">{language === "ua" ? description : descriptionEn}</p>
-							<h2 className="service__h2">{language === "ua" ? subTitle : subTitleEn}</h2>
-							<div className="service__content">
+							<div className="service__description">
 								{documentToReactComponents(
-									language === "ua" ? stages.json : stagesEn.json,
-									language === "ua" ? renderOptions(stages.json) : renderOptions(stagesEn.json)
+									language === "ua" ? description.json : descriptionEn.json,
+									renderOptionsForDescription()
 								)}
 							</div>
+							{subTitle && subTitleEn && <h2 className="service__h2">{language === "ua" ? subTitle : subTitleEn}</h2>}
+							{stages && stagesEn && (
+								<div className="service__content">
+									{documentToReactComponents(
+										language === "ua" ? stages.json : stagesEn.json,
+										language === "ua" ? renderOptionsForStages(stages.json) : renderOptionsForStages(stagesEn.json)
+									)}
+								</div>
+							)}
 							<button ref={btnRef} className="btn services__btn" type="button" onClick={() => openModal(btnRef)}>
 								{translation["contactBtn"][language]}
 							</button>

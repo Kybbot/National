@@ -990,7 +990,7 @@ export type Service = Entry & {
   __typename?: 'Service';
   bgImg: Maybe<Asset>;
   contentfulMetadata: ContentfulMetadata;
-  description: Maybe<Scalars['String']>;
+  description: Maybe<ServiceDescription>;
   icon: Maybe<Asset>;
   linkedFrom: Maybe<ServiceLinkingCollections>;
   slug: Maybe<Scalars['String']>;
@@ -1058,18 +1058,39 @@ export type ServiceCollection = {
   total: Scalars['Int'];
 };
 
+export type ServiceDescription = {
+  __typename?: 'ServiceDescription';
+  json: Scalars['JSON'];
+  links: ServiceDescriptionLinks;
+};
+
+export type ServiceDescriptionAssets = {
+  __typename?: 'ServiceDescriptionAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type ServiceDescriptionEntries = {
+  __typename?: 'ServiceDescriptionEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type ServiceDescriptionLinks = {
+  __typename?: 'ServiceDescriptionLinks';
+  assets: ServiceDescriptionAssets;
+  entries: ServiceDescriptionEntries;
+};
+
 export type ServiceFilter = {
   AND: InputMaybe<Array<InputMaybe<ServiceFilter>>>;
   OR: InputMaybe<Array<InputMaybe<ServiceFilter>>>;
   bgImg_exists: InputMaybe<Scalars['Boolean']>;
   contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
-  description: InputMaybe<Scalars['String']>;
   description_contains: InputMaybe<Scalars['String']>;
   description_exists: InputMaybe<Scalars['Boolean']>;
-  description_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  description_not: InputMaybe<Scalars['String']>;
   description_not_contains: InputMaybe<Scalars['String']>;
-  description_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   icon_exists: InputMaybe<Scalars['Boolean']>;
   slug: InputMaybe<Scalars['String']>;
   slug_contains: InputMaybe<Scalars['String']>;
@@ -1275,4 +1296,4 @@ export type GeServiceBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GeServiceBySlugQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, description: string, subTitle: string, titleEn: string, descriptionEn: string, subTitleEn: string, bgImg: { __typename?: 'Asset', url: string }, stages: { __typename?: 'ServiceStages', json: any }, stagesEn: { __typename?: 'ServiceStages', json: any } }> } };
+export type GeServiceBySlugQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, subTitle: string, titleEn: string, subTitleEn: string, description: { __typename?: 'ServiceDescription', json: any }, descriptionEn: { __typename?: 'ServiceDescription', json: any }, bgImg: { __typename?: 'Asset', url: string }, stages: { __typename?: 'ServiceStages', json: any }, stagesEn: { __typename?: 'ServiceStages', json: any } }> } };
