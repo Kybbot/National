@@ -1,4 +1,5 @@
 import React, { ReactNode, useRef } from "react";
+import Image from "next/image";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import { ParsedUrlQuery } from "querystring";
 import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
@@ -126,7 +127,7 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 				</Modal>
 				<div className="service">
 					<div className="service__wrapper">
-						<div className="service__bg" style={{ backgroundImage: `url(${bgImg.url})` }}></div>
+						<Image src={bgImg.url} alt={title} className="service__img" fill />
 						<h1 className="service__title">{language === "ua" ? title : titleEn}</h1>
 					</div>
 					<div className="container">

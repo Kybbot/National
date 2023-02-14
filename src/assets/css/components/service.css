@@ -8,6 +8,11 @@
 	margin-bottom: 43px;
 }
 
+.service__img {
+	object-fit: cover;
+	filter: blur(3px);
+}
+
 .service__bg {
 	position: absolute;
 	top: 0;

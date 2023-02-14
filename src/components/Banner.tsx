@@ -14,6 +14,7 @@ export const Banner: FC<BannerProps> = ({ language, translation, openModal }) =>
 
 	return (
 		<section className="banner">
+			<Image src="/img/main-bg.jpg" alt="" aria-hidden className="banner__main-img" fill />
 			<div className="container">
 				<div className="banner__container">
 					<svg className="banner__img" width="343" height="52" aria-hidden="true">

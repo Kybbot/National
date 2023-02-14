@@ -6,12 +6,17 @@
 	height: 100vh;
 	width: 100%;
 	background-color: var(--bg-color);
-	background-image: url("/img/main-bg.jpg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
 	overflow-x: hidden;
+}
+
+.banner__main-img {
+	object-fit: cover;
 	z-index: 1;
+}
+
+.banner__container {
+	position: relative;
+	z-index: 2;
 }
 
 .banner__img {
@@ -36,7 +41,7 @@
 	left: 0;
 	font-size: 0;
 	line-height: 0;
-	z-index: 1;
+	z-index: 2;
 }
 
 .banner__svg {
@@ -56,7 +61,7 @@
 	width: 100%;
 	height: 50%;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
-	z-index: -1;
+	z-index: 1;
 }
 
 @media screen and (min-width: 1024px) {
