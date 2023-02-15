@@ -136,9 +136,6 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 										<use xlinkHref="/img/icons.svg#call" />
 									</svg>
 									<div>
-										<a href="tel:+380567903807" className="contactForm__phone">
-											+380567903807
-										</a>
 										<a href="tel:+380567950505" className="contactForm__phone">
 											+380567950505
 										</a>
