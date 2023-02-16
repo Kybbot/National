@@ -122,8 +122,8 @@ export const translation: translationType = {
 		ua: "Наша компанія вже більше 5 років співпрацює із замовниками в рамках контрактного виробництва. Завдяки Нам, компанія-замовник здатна зекономити час та ресурси на покупці, обслуговуванні необхідного обладнання та виробничого приміщення - усе це робимо ми.",
 	},
 	aboutText2: {
-		en: "On the territory of our production there are 4 separate blending departments, each of which is intended for separate products. Also, since 2022, a refrigerating shop with the latest equipment for meat processing, which meets all the norms and standards of the HACCP, has been built.",
-		ua: "На території нашого виробництва розміщені 4 окремі купажні відділення, кожне з яких призначено для окремих продуктів. Також з 2022 року вибудовано холодильний цех з новітнім обладнанням для переробки м’яса який відповідає всім нормам та стандартам НАССР.",
+		en: "On the territory of our production there are 4 separate blending departments, each of which is intended for separate products. Also, since 2022, a special workshop with the latest equipment for meat processing, which meets all the norms and standards of the HACCP, has been built.",
+		ua: "На території нашого виробництва розміщені 4 окремі купажні відділення, кожне з яких призначено для окремих продуктів. Також з 2022 року вибудовано окремий цех з новітнім обладнанням для переробки м’яса який відповідає всім нормам та стандартам НАССР.",
 	},
 	aboutSubtitle1: {
 		en: "Having all conditions and permits in the field of beverage and food production, We provide the best conditions",
