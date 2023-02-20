@@ -123,6 +123,7 @@ export const getProducts = async () => {
 			categories: productCategoryCollection {
 				items {
 					name
+					order
 					linkedFrom {
 						productSubcategoryCollection {
 							items {

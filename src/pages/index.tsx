@@ -32,17 +32,19 @@ export const getStaticProps = async () => {
 	const subCategoriesList = products.subCategoriesList.items;
 
 	const categories = products.categories.items;
+
+	const sortedCategories = [...categories].sort((a, b) => a.order - b.order);
 	const allProducts = products.products.items;
 
 	const productsInfo: { [key: string]: { [key: string]: ProductType[] } } = {};
 
-	for (let i = 0; i < categories.length; i++) {
-		if (!categories[i].linkedFrom.productSubcategoryCollection.items.length) continue;
+	for (let i = 0; i < sortedCategories.length; i++) {
+		if (!sortedCategories[i].linkedFrom.productSubcategoryCollection.items.length) continue;
 
-		const category = categories[i].name;
+		const category = sortedCategories[i].name;
 		let obj: { [key: string]: [] } = {};
-		for (let j = 0; j < categories[i].linkedFrom.productSubcategoryCollection.items.length; j++) {
-			const subCategory = categories[i].linkedFrom.productSubcategoryCollection.items[j].name;
+		for (let j = 0; j < sortedCategories[i].linkedFrom.productSubcategoryCollection.items.length; j++) {
+			const subCategory = sortedCategories[i].linkedFrom.productSubcategoryCollection.items[j].name;
 			obj[subCategory] = [];
 		}
 		productsInfo[category] = obj;
