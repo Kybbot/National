@@ -13,7 +13,6 @@
 
 .products__nav {
 	display: flex;
-	align-items: center;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 }
@@ -29,7 +28,6 @@
 	border-style: none;
 	cursor: pointer;
 	flex: 1;
-	white-space: nowrap;
 	scroll-snap-align: start;
 }
 
@@ -126,6 +124,7 @@
 .product__front {
 	display: flex;
 	justify-content: flex-end;
+	gap: 5px;
 	padding: 16px 7px 9px 4px;
 	background-color: var(--bg-color);
 	overflow: hidden;
@@ -153,6 +152,10 @@
 	height: auto;
 	aspect-ratio: 0.52;
 } */
+
+.product__preview {
+	height: inherit;
+}
 
 .product__img {
 	width: auto;
