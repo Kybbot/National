@@ -81,9 +81,45 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 					description
 					descriptionEn: description(locale: "en-US")
 					text {
+						links {
+							entries {
+								hyperlink {
+									sys {
+										id
+									}
+									__typename
+									... on Article {
+										title
+										slug
+									}
+									... on Service {
+										title
+										slug
+									}
+								}
+							}
+						}
 						json
 					}
 					textEn: text(locale: "en-US") {
+						links {
+							entries {
+								hyperlink {
+									sys {
+										id
+									}
+									__typename
+									... on Article {
+										title
+										slug
+									}
+									... on Service {
+										title
+										slug
+									}
+								}
+							}
+						}
 						json
 					}
 				}

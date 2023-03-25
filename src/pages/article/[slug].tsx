@@ -16,6 +16,7 @@ import { getAllArticlesSlugs, getArticleBySlug } from "../../contentful";
 import { translation } from "../../utils/translation";
 
 import { GetAllArticlesSlugsQuery, GetArticleBySlugQuery } from "../../@types/contentfulSchema";
+import { TextLink, TextLinks } from "../../@types/contentfulRichText";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await getAllArticlesSlugs();
@@ -73,7 +74,12 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 
 	const finalDate = useFormattedDate(date);
 
-	function renderOptions() {
+	function renderOptions(links: TextLinks) {
+		const hyperLinksMap = new Map<string, TextLink>();
+		for (const entry of links.entries.hyperlink) {
+			hyperLinksMap.set(entry.sys.id, entry);
+		}
+
 		return {
 			renderNode: {
 				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => {
@@ -101,6 +107,23 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 						{children}
 					</a>
 				),
+				[INLINES.ENTRY_HYPERLINK]: (node: Block | Inline, children: ReactNode) => {
+					const entry = hyperLinksMap.get(node.data.target.sys.id);
+					if (entry?.__typename === "Article") {
+						return (
+							<Link href={`/article/${entry.slug}`} className="article__link">
+								{children}
+							</Link>
+						);
+					}
+					if (entry?.__typename === "Service") {
+						return (
+							<Link href={`/service/${entry.slug}`} className="article__link">
+								{children}
+							</Link>
+						);
+					}
+				},
 			},
 		};
 	}
@@ -155,7 +178,10 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 								</div>
 							</div>
 							<div className="article__content">
-								{documentToReactComponents(language === "ua" ? text.json : textEn.json, renderOptions())}
+								{documentToReactComponents(
+									language === "ua" ? text.json : textEn.json,
+									language === "ua" ? renderOptions(text.links) : renderOptions(textEn.links)
+								)}
 							</div>
 							<div className="article__btns">
 								<div className="article__socials">
