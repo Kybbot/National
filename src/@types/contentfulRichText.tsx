@@ -8,16 +8,23 @@ export type TextLink = {
 	};
 };
 
+export type TextAsset = {
+	__typename?: "Asset";
+	title: string;
+	url: string;
+	width: number;
+	height: number;
+	sys: { __typename?: "Sys"; id: string };
+};
+
 export type TextLinks = {
 	__typename?: "ArticleTextLinks";
 	entries: {
 		__typename?: "ArticleTextEntries";
-		hyperlink: Array<
-			| { __typename: "Article"; title: string; slug: string; sys: { __typename?: "Sys"; id: string } }
-			| { __typename: "Product"; sys: { __typename?: "Sys"; id: string } }
-			| { __typename: "ProductCategory"; sys: { __typename?: "Sys"; id: string } }
-			| { __typename: "ProductSubcategory"; sys: { __typename?: "Sys"; id: string } }
-			| { __typename: "Service"; title: string; slug: string; sys: { __typename?: "Sys"; id: string } }
-		>;
+		hyperlink: TextLink[];
+	};
+	assets: {
+		__typename?: "ArticleTextAssets";
+		block: TextAsset[];
 	};
 };

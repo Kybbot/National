@@ -16,7 +16,7 @@ import { getAllArticlesSlugs, getArticleBySlug } from "../../contentful";
 import { translation } from "../../utils/translation";
 
 import { GetAllArticlesSlugsQuery, GetArticleBySlugQuery } from "../../@types/contentfulSchema";
-import { TextLink, TextLinks } from "../../@types/contentfulRichText";
+import { TextAsset, TextLink, TextLinks } from "../../@types/contentfulRichText";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await getAllArticlesSlugs();
@@ -75,6 +75,11 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 	const finalDate = useFormattedDate(date);
 
 	function renderOptions(links: TextLinks) {
+		const assetMap = new Map<string, TextAsset>();
+		for (const asset of links.assets.block) {
+			assetMap.set(asset.sys.id, asset);
+		}
+
 		const hyperLinksMap = new Map<string, TextLink>();
 		for (const entry of links.entries.hyperlink) {
 			hyperLinksMap.set(entry.sys.id, entry);
@@ -102,6 +107,20 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 				[BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
 					<li className="article__item">{children}</li>
 				),
+				[BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
+					const asset = assetMap.get(node.data.target.sys.id);
+					return (
+						<Image
+							width={asset?.width}
+							height={asset?.height}
+							src={asset!.url}
+							placeholder="blur"
+							blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIwJSIgeTE9IjEwMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNkNWQ1ZDUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMmUyZTIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2cxKSIvPjwvc3ZnPg=="
+							alt={asset!.title}
+							className="article__img"
+						/>
+					);
+				},
 				[INLINES.HYPERLINK]: (node: Block | Inline, children: ReactNode) => (
 					<a className="article__link" target="_blank" rel="noreferrer noopener" href={`${node.data.uri}`}>
 						{children}

@@ -98,6 +98,17 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 									}
 								}
 							}
+							assets {
+								block {
+									sys {
+										id
+									}
+									title
+									url
+									width
+									height
+								}
+							}
 						}
 						json
 					}
@@ -117,6 +128,17 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 										title
 										slug
 									}
+								}
+							}
+							assets {
+								block {
+									sys {
+										id
+									}
+									title
+									url
+									width
+									height
 								}
 							}
 						}
