@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import Image from "next/image";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
-import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
+import { Block, BLOCKS, Inline, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { ContactForm, Footer, Header, Modal, Seo } from "../../components";
@@ -95,6 +95,11 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 				[BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className="article__list">{children}</ol>,
 				[BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
 					<li className="article__item">{children}</li>
+				),
+				[INLINES.HYPERLINK]: (node: Block | Inline, children: ReactNode) => (
+					<a className="article__link" target="_blank" rel="noreferrer noopener" href={`${node.data.uri}`}>
+						{children}
+					</a>
 				),
 			},
 		};
