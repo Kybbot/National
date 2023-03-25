@@ -18,13 +18,10 @@ export type TextAsset = {
 };
 
 export type TextLinks = {
-	__typename?: "ArticleTextLinks";
 	entries: {
-		__typename?: "ArticleTextEntries";
 		hyperlink: TextLink[];
 	};
 	assets: {
-		__typename?: "ArticleTextAssets";
 		block: TextAsset[];
 	};
 };

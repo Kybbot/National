@@ -273,9 +273,67 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 					title
 					titleEn: title(locale: "en-US")
 					description {
+						links {
+							entries {
+								hyperlink {
+									sys {
+										id
+									}
+									__typename
+									... on Article {
+										title
+										slug
+									}
+									... on Service {
+										title
+										slug
+									}
+								}
+							}
+							assets {
+								block {
+									sys {
+										id
+									}
+									title
+									url
+									width
+									height
+								}
+							}
+						}
 						json
 					}
 					descriptionEn: description(locale: "en-US") {
+						links {
+							entries {
+								hyperlink {
+									sys {
+										id
+									}
+									__typename
+									... on Article {
+										title
+										slug
+									}
+									... on Service {
+										title
+										slug
+									}
+								}
+							}
+							assets {
+								block {
+									sys {
+										id
+									}
+									title
+									url
+									width
+									height
+								}
+							}
+						}
 						json
 					}
 					bgImg {

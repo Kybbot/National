@@ -60,6 +60,8 @@
 
 .article__img {
 	display: block;
+	max-width: 100%;
+	height: auto;
 	font-size: 0;
 	line-height: normal;
 	margin: 0 auto 40px auto;
