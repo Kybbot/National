@@ -43,7 +43,7 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 		const data = JSON.stringify(formState);
 
 		try {
-			const response = await fetch("https://formsubmit.co/ajax/ani@ani.ua", {
+			const response = await fetch("https://formsubmit.co/ajax/dp.national.post@gmail.com", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -127,8 +127,8 @@ export const ContactForm: FC<ContactFormProps> = ({ active, language, translatio
 									<svg className="contactForm__email-svg" width="29" height="29" aria-hidden="true">
 										<use xlinkHref="/img/icons.svg#email" />
 									</svg>
-									<a href="mailto:ani@ani.ua" className="contactForm__email">
-										ani@ani.ua
+									<a href="mailto:dp.national.post@gmail.com" className="contactForm__email">
+										dp.national.post@gmail.com
 									</a>
 								</div>
 								<div className="contactForm__phones">
