@@ -1,3 +1,7 @@
+export const videoTypes = {
+	mp4: "video/mp4",
+};
+
 export type TextLink = {
 	__typename: "Article" | "Product" | "ProductCategory" | "ProductSubcategory" | "Service";
 	title?: string;
@@ -10,6 +14,7 @@ export type TextLink = {
 
 export type TextAsset = {
 	__typename?: "Asset";
+	contentType: string;
 	title: string;
 	url: string;
 	width: number;

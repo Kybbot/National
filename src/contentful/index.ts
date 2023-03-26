@@ -100,6 +100,7 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 							}
 							assets {
 								block {
+									contentType
 									sys {
 										id
 									}
@@ -132,6 +133,7 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 							}
 							assets {
 								block {
+									contentType
 									sys {
 										id
 									}
@@ -292,6 +294,7 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 							}
 							assets {
 								block {
+									contentType
 									sys {
 										id
 									}
@@ -324,6 +327,7 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 							}
 							assets {
 								block {
+									contentType
 									sys {
 										id
 									}

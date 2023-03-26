@@ -15,7 +15,7 @@ import { getAllServicesSlugs, geServiceBySlug } from "../../contentful";
 import { translation } from "../../utils/translation";
 
 import { GeServiceBySlugQuery } from "../../@types/contentfulSchema";
-import { TextAsset, TextLink, TextLinks } from "../../@types/contentfulRichText";
+import { TextAsset, TextLink, TextLinks, videoTypes } from "../../@types/contentfulRichText";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await getAllServicesSlugs();
@@ -92,6 +92,18 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 				),
 				[BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
 					const asset = assetMap.get(node.data.target.sys.id);
+
+					if (asset?.contentType === videoTypes.mp4) {
+						return (
+							<video controls preload="metadata" className="article__video">
+								<source src={asset!.url} type="video/mp4"></source>
+								Download the
+								<a href={asset!.url}>MP4</a>
+								video.
+							</video>
+						);
+					}
+
 					return (
 						<Image
 							width={asset?.width}
