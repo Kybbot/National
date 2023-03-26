@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import useFormattedDate from "../hooks/useFormattedDate";
+import { useFormattedDate } from "../hooks/useFormattedDate";
 
 import { translationType } from "../utils/translation";
 
