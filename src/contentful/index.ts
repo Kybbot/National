@@ -97,6 +97,17 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 										slug
 									}
 								}
+								block {
+									sys {
+										id
+									}
+									__typename
+									... on YouTubeVideo {
+										title
+										id
+										shareLink
+									}
+								}
 							}
 							assets {
 								block {
@@ -128,6 +139,17 @@ export const getArticleBySlug = async (slug: string | string[]) => {
 									... on Service {
 										title
 										slug
+									}
+								}
+								block {
+									sys {
+										id
+									}
+									__typename
+									... on YouTubeVideo {
+										title
+										id
+										shareLink
 									}
 								}
 							}
@@ -291,6 +313,17 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 										slug
 									}
 								}
+								block {
+									sys {
+										id
+									}
+									__typename
+									... on YouTubeVideo {
+										title
+										id
+										shareLink
+									}
+								}
 							}
 							assets {
 								block {
@@ -322,6 +355,17 @@ export const geServiceBySlug = async (slug: string | string[]) => {
 									... on Service {
 										title
 										slug
+									}
+								}
+								block {
+									sys {
+										id
+									}
+									__typename
+									... on YouTubeVideo {
+										title
+										id
+										shareLink
 									}
 								}
 							}

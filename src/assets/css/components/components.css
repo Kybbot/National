@@ -15,3 +15,5 @@
 @import "./contactForm.css";
 @import "./article.css";
 @import "./service.css";
+
+@import "./rich-text/youtubeVideo.css";

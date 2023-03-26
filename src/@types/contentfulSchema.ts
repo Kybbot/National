@@ -871,6 +871,8 @@ export type Query = {
   productSubcategoryCollection: Maybe<ProductSubcategoryCollection>;
   service: Maybe<Service>;
   serviceCollection: Maybe<ServiceCollection>;
+  youTubeVideo: Maybe<YouTubeVideo>;
+  youTubeVideoCollection: Maybe<YouTubeVideoCollection>;
 };
 
 
@@ -983,6 +985,23 @@ export type QueryServiceCollectionArgs = {
   preview: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   where: InputMaybe<ServiceFilter>;
+};
+
+
+export type QueryYouTubeVideoArgs = {
+  id: Scalars['String'];
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+};
+
+
+export type QueryYouTubeVideoCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  order: InputMaybe<Array<InputMaybe<YouTubeVideoOrder>>>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<YouTubeVideoFilter>;
 };
 
 /** Послуга [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/service) */
@@ -1221,6 +1240,107 @@ export type SysFilter = {
   publishedVersion_not_in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
 };
 
+/** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
+export type YouTubeVideo = Entry & {
+  __typename?: 'YouTubeVideo';
+  contentfulMetadata: ContentfulMetadata;
+  id: Maybe<Scalars['String']>;
+  linkedFrom: Maybe<YouTubeVideoLinkingCollections>;
+  shareLink: Maybe<Scalars['String']>;
+  sys: Sys;
+  title: Maybe<Scalars['String']>;
+};
+
+
+/** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
+export type YouTubeVideoIdArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+/** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
+export type YouTubeVideoLinkedFromArgs = {
+  allowedLocales: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+/** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
+export type YouTubeVideoShareLinkArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+/** Дані для відео YouTube [See type definition](https://app.contentful.com/spaces/72hh1iccowpx/content_types/youTubeVideo) */
+export type YouTubeVideoTitleArgs = {
+  locale: InputMaybe<Scalars['String']>;
+};
+
+export type YouTubeVideoCollection = {
+  __typename?: 'YouTubeVideoCollection';
+  items: Array<Maybe<YouTubeVideo>>;
+  limit: Scalars['Int'];
+  skip: Scalars['Int'];
+  total: Scalars['Int'];
+};
+
+export type YouTubeVideoFilter = {
+  AND: InputMaybe<Array<InputMaybe<YouTubeVideoFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<YouTubeVideoFilter>>>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  id: InputMaybe<Scalars['String']>;
+  id_contains: InputMaybe<Scalars['String']>;
+  id_exists: InputMaybe<Scalars['Boolean']>;
+  id_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id_not: InputMaybe<Scalars['String']>;
+  id_not_contains: InputMaybe<Scalars['String']>;
+  id_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  shareLink: InputMaybe<Scalars['String']>;
+  shareLink_contains: InputMaybe<Scalars['String']>;
+  shareLink_exists: InputMaybe<Scalars['Boolean']>;
+  shareLink_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  shareLink_not: InputMaybe<Scalars['String']>;
+  shareLink_not_contains: InputMaybe<Scalars['String']>;
+  shareLink_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  sys: InputMaybe<SysFilter>;
+  title: InputMaybe<Scalars['String']>;
+  title_contains: InputMaybe<Scalars['String']>;
+  title_exists: InputMaybe<Scalars['Boolean']>;
+  title_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  title_not: InputMaybe<Scalars['String']>;
+  title_not_contains: InputMaybe<Scalars['String']>;
+  title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type YouTubeVideoLinkingCollections = {
+  __typename?: 'YouTubeVideoLinkingCollections';
+  entryCollection: Maybe<EntryCollection>;
+};
+
+
+export type YouTubeVideoLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+  locale: InputMaybe<Scalars['String']>;
+  preview: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+export enum YouTubeVideoOrder {
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  ShareLinkAsc = 'shareLink_ASC',
+  ShareLinkDesc = 'shareLink_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
 export type CfProductCategoryNestedFilter = {
   AND: InputMaybe<Array<InputMaybe<CfProductCategoryNestedFilter>>>;
   OR: InputMaybe<Array<InputMaybe<CfProductCategoryNestedFilter>>>;
@@ -1274,7 +1394,7 @@ export type GetArticleBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetArticleBySlugQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', title: string, slug: string, date: any, description: string, titleEn: string, descriptionEn: string, image: { __typename?: 'Asset', url: string }, text: { __typename?: 'ArticleText', json: any, links: { __typename?: 'ArticleTextLinks', entries: { __typename?: 'ArticleTextEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ArticleTextAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, textEn: { __typename?: 'ArticleText', json: any, links: { __typename?: 'ArticleTextLinks', entries: { __typename?: 'ArticleTextEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ArticleTextAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } } }> } };
+export type GetArticleBySlugQuery = { __typename?: 'Query', articleCollection: { __typename?: 'ArticleCollection', items: Array<{ __typename?: 'Article', title: string, slug: string, date: any, description: string, titleEn: string, descriptionEn: string, image: { __typename?: 'Asset', url: string }, text: { __typename?: 'ArticleText', json: any, links: { __typename?: 'ArticleTextLinks', entries: { __typename?: 'ArticleTextEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', sys: { __typename?: 'Sys', id: string } }>, block: Array<{ __typename: 'Article', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', title: string, id: string, shareLink: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ArticleTextAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, textEn: { __typename?: 'ArticleText', json: any, links: { __typename?: 'ArticleTextLinks', entries: { __typename?: 'ArticleTextEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', sys: { __typename?: 'Sys', id: string } }>, block: Array<{ __typename: 'Article', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', title: string, id: string, shareLink: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ArticleTextAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } } }> } };
 
 export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1296,4 +1416,4 @@ export type GeServiceBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GeServiceBySlugQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, subTitle: string, titleEn: string, subTitleEn: string, description: { __typename?: 'ServiceDescription', json: any, links: { __typename?: 'ServiceDescriptionLinks', entries: { __typename?: 'ServiceDescriptionEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ServiceDescriptionAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, descriptionEn: { __typename?: 'ServiceDescription', json: any, links: { __typename?: 'ServiceDescriptionLinks', entries: { __typename?: 'ServiceDescriptionEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ServiceDescriptionAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, bgImg: { __typename?: 'Asset', url: string }, stages: { __typename?: 'ServiceStages', json: any }, stagesEn: { __typename?: 'ServiceStages', json: any } }> } };
+export type GeServiceBySlugQuery = { __typename?: 'Query', serviceCollection: { __typename?: 'ServiceCollection', items: Array<{ __typename?: 'Service', title: string, subTitle: string, titleEn: string, subTitleEn: string, description: { __typename?: 'ServiceDescription', json: any, links: { __typename?: 'ServiceDescriptionLinks', entries: { __typename?: 'ServiceDescriptionEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', sys: { __typename?: 'Sys', id: string } }>, block: Array<{ __typename: 'Article', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', title: string, id: string, shareLink: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ServiceDescriptionAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, descriptionEn: { __typename?: 'ServiceDescription', json: any, links: { __typename?: 'ServiceDescriptionLinks', entries: { __typename?: 'ServiceDescriptionEntries', hyperlink: Array<{ __typename: 'Article', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', title: string, slug: string, sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', sys: { __typename?: 'Sys', id: string } }>, block: Array<{ __typename: 'Article', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Product', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductCategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'ProductSubcategory', sys: { __typename?: 'Sys', id: string } } | { __typename: 'Service', sys: { __typename?: 'Sys', id: string } } | { __typename: 'YouTubeVideo', title: string, id: string, shareLink: string, sys: { __typename?: 'Sys', id: string } }> }, assets: { __typename?: 'ServiceDescriptionAssets', block: Array<{ __typename?: 'Asset', contentType: string, title: string, url: string, width: number, height: number, sys: { __typename?: 'Sys', id: string } }> } } }, bgImg: { __typename?: 'Asset', url: string }, stages: { __typename?: 'ServiceStages', json: any }, stagesEn: { __typename?: 'ServiceStages', json: any } }> } };

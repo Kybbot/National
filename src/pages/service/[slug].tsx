@@ -7,6 +7,7 @@ import { Block, BLOCKS, Inline, INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { ContactForm, Footer, Header, Modal, Seo } from "../../components";
+import { YoutubeVideo } from "../../components/rich-text/YoutubeVideo";
 
 import { useLanguage } from "../../hooks/useLanguage";
 import { useModal } from "../../hooks/useModal";
@@ -15,7 +16,7 @@ import { getAllServicesSlugs, geServiceBySlug } from "../../contentful";
 import { translation } from "../../utils/translation";
 
 import { GeServiceBySlugQuery } from "../../@types/contentfulSchema";
-import { TextAsset, TextLink, TextLinks, videoTypes } from "../../@types/contentfulRichText";
+import { TextAsset, TextBlock, TextLink, TextLinks, videoTypes } from "../../@types/contentfulRichText";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const slugs = await getAllServicesSlugs();
@@ -68,6 +69,11 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 			hyperLinksMap.set(entry.sys.id, entry);
 		}
 
+		const entriesMap = new Map<string, TextBlock>();
+		for (const entry of links.entries.block) {
+			entriesMap.set(entry.sys.id, entry);
+		}
+
 		return {
 			renderNode: {
 				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => {
@@ -115,6 +121,12 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 							className="article__img"
 						/>
 					);
+				},
+				[BLOCKS.EMBEDDED_ENTRY]: (node: Block | Inline, children: ReactNode) => {
+					const asset = entriesMap.get(node.data.target.sys.id);
+					if (asset?.__typename === "YouTubeVideo") {
+						return <YoutubeVideo id={asset.id} title={asset.title} />;
+					}
 				},
 				[INLINES.HYPERLINK]: (node: Block | Inline, children: ReactNode) => (
 					<a className="article__link" target="_blank" rel="noreferrer noopener" href={`${node.data.uri}`}>
