@@ -49,6 +49,7 @@
 
 .parthners__wrapper:nth-child(1) > img {
 	max-width: 211px;
+	filter: grayscale(0%) contrast(20%);
 }
 
 .parthners__wrapper:nth-child(2) > img {
