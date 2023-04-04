@@ -16,6 +16,7 @@
 }
 
 .about__img > img {
+	object-fit: contain;
 	opacity: 0;
 	animation: imageAnimation 18s linear infinite 0s;
 }
@@ -121,10 +122,6 @@
 		aspect-ratio: auto;
 		grid-column: span 1;
 		grid-row: span 2;
-	}
-
-	.about__img img {
-		object-fit: contain;
 	}
 
 	.about__title {
