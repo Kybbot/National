@@ -71,8 +71,8 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 										<svg className="footer__email-svg" width="29" height="29" aria-hidden="true">
 											<use xlinkHref="/img/icons.svg#email" />
 										</svg>
-										<a href="mailto:ani@ani.ua" className="footer__email">
-											ani@ani.ua
+										<a href={`mailto:${socials.email}`} className="footer__email">
+											{socials.email}
 										</a>
 									</div>
 									<div className="footer__phones">
@@ -80,8 +80,8 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 											<use xlinkHref="/img/icons.svg#call" />
 										</svg>
 										<div>
-											<a href="tel:+380567950505" className="footer__phone">
-												+380567950505
+											<a href={`tel:${socials.phone}`} className="footer__phone">
+												{socials.phone}
 											</a>
 										</div>
 									</div>

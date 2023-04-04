@@ -1,8 +1,8 @@
-import React, { ReactNode, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import { ParsedUrlQuery } from "querystring";
-import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
+
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { ContactForm, Footer, Header, Modal, Seo } from "../../components";
@@ -12,6 +12,8 @@ import { useModal } from "../../hooks/useModal";
 import { getAllServicesSlugs, geServiceBySlug } from "../../contentful";
 
 import { translation } from "../../utils/translation";
+import { renderOptions } from "../../utils/renderOptions";
+import { renderOptionsForStages } from "../../utils/renderOptionsForStages";
 
 import { GeServiceBySlugQuery } from "../../@types/contentfulSchema";
 
@@ -55,68 +57,6 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 	const { title, titleEn, description, descriptionEn, subTitle, subTitleEn, bgImg, stages, stagesEn } =
 		service.serviceCollection.items[0];
 
-	function renderOptionsForDescription() {
-		return {
-			renderNode: {
-				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => {
-					return <p className="article__text">{children}</p>;
-				},
-				[BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => (
-					<div className="article__wrapper">
-						<h2 className="article__h2">{children}</h2>
-						<div className="article__dec"></div>
-					</div>
-				),
-				[BLOCKS.HEADING_3]: (node: Block | Inline, children: ReactNode) => (
-					<div className="article__wrapper">
-						<h3 className="article__h3">{children}</h3>
-						<div className="article__dec"></div>
-					</div>
-				),
-				[BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => <ul className="article__list">{children}</ul>,
-				[BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className="article__list">{children}</ol>,
-				[BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
-					<li className="article__item">{children}</li>
-				),
-			},
-		};
-	}
-
-	function renderOptionsForStages(json: any) {
-		const headlinesMap = new Map<
-			string,
-			{
-				index: number;
-				title: string;
-			}
-		>();
-
-		const filteredHeadlines = json.content.filter((item: { nodeType: string }) => item.nodeType === "heading-3");
-
-		for (let i = 0; i < filteredHeadlines.length; i++) {
-			headlinesMap.set(filteredHeadlines[i].content[0].value, {
-				index: i + 1,
-				title: filteredHeadlines[i].content[0].value,
-			});
-		}
-
-		return {
-			renderNode: {
-				[BLOCKS.HEADING_3]: (node: any, children: ReactNode) => {
-					const index = headlinesMap.get(node.content[0].value);
-
-					return (
-						<div className="service__headline">
-							<span className="service__index">{index?.index}</span>
-							<h2 className="service__h3">{children}</h2>
-						</div>
-					);
-				},
-				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => <p className="service__text">{children}</p>,
-			},
-		};
-	}
-
 	return (
 		<>
 			<Seo />
@@ -135,7 +75,7 @@ const Service: NextPage<ArticleProps> = ({ service }) => {
 							<div className="service__description">
 								{documentToReactComponents(
 									language === "ua" ? description.json : descriptionEn.json,
-									renderOptionsForDescription()
+									language === "ua" ? renderOptions(description.links) : renderOptions(descriptionEn.links)
 								)}
 							</div>
 							{subTitle && subTitleEn && <h2 className="service__h2">{language === "ua" ? subTitle : subTitleEn}</h2>}

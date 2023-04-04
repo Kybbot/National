@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFormattedDate = (date: string) => {
+export const useFormattedDate = (date: string) => {
 	const [formattedDate, setFormattedDate] = useState({
 		day: "",
 		month: "",
@@ -29,5 +29,3 @@ const useFormattedDate = (date: string) => {
 
 	return formattedDate;
 };
-
-export default useFormattedDate;

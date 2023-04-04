@@ -1,19 +1,19 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
 import Image from "next/image";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
-import { Block, BLOCKS, Inline } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { ContactForm, Footer, Header, Modal, Seo } from "../../components";
 
 import { useLanguage } from "../../hooks/useLanguage";
 import { useModal } from "../../hooks/useModal";
-import useFormattedDate from "../../hooks/useFormattedDate";
+import { useFormattedDate } from "../../hooks/useFormattedDate";
 import { getAllArticlesSlugs, getArticleBySlug } from "../../contentful";
 
 import { translation } from "../../utils/translation";
+import { renderOptions } from "../../utils/renderOptions";
 
 import { GetAllArticlesSlugsQuery, GetArticleBySlugQuery } from "../../@types/contentfulSchema";
 
@@ -73,33 +73,6 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 
 	const finalDate = useFormattedDate(date);
 
-	function renderOptions() {
-		return {
-			renderNode: {
-				[BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => {
-					return <p className="article__text">{children}</p>;
-				},
-				[BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => (
-					<div className="article__wrapper">
-						<h2 className="article__h2">{children}</h2>
-						<div className="article__dec"></div>
-					</div>
-				),
-				[BLOCKS.HEADING_3]: (node: Block | Inline, children: ReactNode) => (
-					<div className="article__wrapper">
-						<h3 className="article__h3">{children}</h3>
-						<div className="article__dec"></div>
-					</div>
-				),
-				[BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => <ul className="article__list">{children}</ul>,
-				[BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className="article__list">{children}</ol>,
-				[BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
-					<li className="article__item">{children}</li>
-				),
-			},
-		};
-	}
-
 	const copyToClipBoard = async () => {
 		if (navigator && navigator.clipboard && navigator.clipboard.writeText && location) {
 			await navigator.clipboard.writeText(location.href);
@@ -150,7 +123,10 @@ const Article: NextPage<ArticleProps> = ({ post, slugs }) => {
 								</div>
 							</div>
 							<div className="article__content">
-								{documentToReactComponents(language === "ua" ? text.json : textEn.json, renderOptions())}
+								{documentToReactComponents(
+									language === "ua" ? text.json : textEn.json,
+									language === "ua" ? renderOptions(text.links) : renderOptions(textEn.links)
+								)}
 							</div>
 							<div className="article__btns">
 								<div className="article__socials">

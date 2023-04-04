@@ -15,6 +15,39 @@
 	aspect-ratio: 4 / 3;
 }
 
+.about__img > img {
+	object-fit: contain;
+	opacity: 0;
+	animation: imageAnimation 18s linear infinite 0s;
+}
+
+.about__img > img:nth-child(2) {
+	animation-delay: 6s;
+}
+.about__img > img:nth-child(3) {
+	animation-delay: 12s;
+}
+
+@keyframes imageAnimation {
+	0% {
+		opacity: 0;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	15% {
+		opacity: 1;
+	}
+	35% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 .about__title {
 	font-family: "Days One", sans-serif;
 	font-size: 36px;
@@ -89,10 +122,6 @@
 		aspect-ratio: auto;
 		grid-column: span 1;
 		grid-row: span 2;
-	}
-
-	.about__img img {
-		object-fit: contain;
 	}
 
 	.about__title {

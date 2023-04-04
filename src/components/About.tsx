@@ -14,7 +14,9 @@ export const About: FC<AboutProps> = ({ language, translation }) => {
 			<section className="about" aria-labelledby="about">
 				<div className="about__container">
 					<div className="about__img">
-						<Image src="/img/food.png" alt="Company Food" fill />
+						<Image src="/img/pripravka.png" alt="Company Food" fill />
+						<Image src="/img/tomat.png" alt="Company Food" fill />
+						<Image src="/img/honey.png" alt="Company Food" fill />
 					</div>
 					<h2 className="about__title" id="about">
 						{translation["aboutTitle"][language]}
