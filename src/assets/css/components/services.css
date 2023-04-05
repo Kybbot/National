@@ -21,14 +21,15 @@
 
 .services__item {
 	position: relative;
-	height: 89px;
-	display: flex;
+	min-height: 89px;
+	display: grid;
+	grid-template-columns: 60px 1fr;
 	align-items: center;
 	gap: 18px;
 	background-color: var(--secondary-bg);
 	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 	border-radius: 20px;
-	padding: 0 25px;
+	padding: 10px 25px;
 	cursor: pointer;
 	text-decoration: none;
 	transition: background-color 0.3s ease;
@@ -98,9 +99,10 @@
 	}
 
 	.services__item {
-		height: 133px;
+		min-height: 133px;
 		padding: 0 10px 0 65px;
-		gap: 40px;
+		gap: 15px;
+		grid-template-columns: 90px 1fr;
 	}
 
 	.services__item > .services__svg {
@@ -119,5 +121,11 @@
 
 	.services__item:nth-child(6) > .services__link {
 		max-width: 240px;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.services__item {
+		gap: 40px;
 	}
 }
