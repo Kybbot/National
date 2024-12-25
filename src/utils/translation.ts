@@ -177,8 +177,8 @@ export const translation: translationType = {
 	},
 	// PARTNERS
 	partnersTitle: {
-		en: "Partners",
-		ua: "Партнери",
+		en: "Customers",
+		ua: "Клієнти",
 	},
 	// BLOG
 	blogTitle: {
