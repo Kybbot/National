@@ -87,6 +87,10 @@ export const translation: translationType = {
 		en: "Blog",
 		ua: "Блог",
 	},
+	navPartners: {
+		en: "Clients",
+		ua: "Клієнти",
+	},
 	navContacts: {
 		en: "Contacts",
 		ua: "Контакти",

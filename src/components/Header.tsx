@@ -56,6 +56,11 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 										</a>
 									</li>
 									<li className="header__element">
+										<Link href="/#partners" className="header__link" scroll={false}>
+											{translation["navPartners"][language]}
+										</Link>
+									</li>
+									<li className="header__element">
 										<Link href="/#blog" className="header__link" scroll={false}>
 											{translation["navBlog"][language]}
 										</Link>
@@ -109,6 +114,11 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 							</a>
 						</li>
 						<li className="header__element">
+							<Link href="/#partners" className="header__link" onClick={toggleMobileNav} scroll={false}>
+								{translation["navPartners"][language]}
+							</Link>
+						</li>
+						<li className="header__element">
 							<Link href="/#blog" className="header__link" onClick={toggleMobileNav} scroll={false}>
 								{translation["navBlog"][language]}
 							</Link>
@@ -128,14 +138,6 @@ export const Header: FC<HeaderProps> = ({ language, translation, changeLanguage 
 						УКР
 					</option>
 				</select>
-				<div className="header__socials">
-					<a href="#" target="_blank" rel="noreferrer noopener">
-						<Image src="/img/socials/facebook.png" width="44" height="44" alt="Facebook" />
-					</a>
-					<a href={socials.telegram} target="_blank" rel="noreferrer noopener">
-						<Image src="/img/socials/telegram.png" width="44" height="44" alt="Telegram" />
-					</a>
-				</div>
 			</div>
 		</header>
 	);
