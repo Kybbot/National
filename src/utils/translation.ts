@@ -198,4 +198,29 @@ export const translation: translationType = {
 		en: "Share:",
 		ua: "Поширити:",
 	},
+	// FOOTER
+	aboutUs: {
+		en: "About Us",
+		ua: "Про нас",
+	},
+	history: {
+		en: "History",
+		ua: "Історія",
+	},
+	values: {
+		en: "Our values",
+		ua: "Наші цінності",
+	},
+	humanitarianSector: {
+		en: "Humanitarian sector",
+		ua: "Гуманітарний сектор",
+	},
+	team: {
+		en: "Our team",
+		ua: "Наша команда",
+	},
+	checkCompany: {
+		en: "Check the company",
+		ua: "Перевірити компанію",
+	},
 };
