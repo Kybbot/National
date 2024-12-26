@@ -39,8 +39,8 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
-							width="211"
-							height="73"
+							width="216"
+							height="94"
 							src="/img/partners/metro.png"
 							alt="Metro"
 							quality="100"
@@ -109,9 +109,9 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 					<div className="parthners__wrapper">
 						<Image
 							className="pathners__img"
-							width="211"
-							height="65"
-							src="/img/partners/coagulant.png"
+							width="147"
+							height="191"
+							src="/img/partners/okko.png"
 							alt="Coa Gulant"
 							quality="100"
 						/>

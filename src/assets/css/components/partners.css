@@ -61,7 +61,7 @@
 
 /* metro */
 .parthners__wrapper:nth-child(3) > img {
-	max-width: 211px;
+	max-width: 216px;
 }
 
 /* fozzy */
@@ -94,9 +94,9 @@
 	max-width: 211px;
 }
 
-/* coagulant */
+/* okko */
 .parthners__wrapper:nth-child(10) > img {
-	max-width: 211px;
+	max-width: 147px;
 }
 
 /* blackfox */
@@ -109,7 +109,7 @@
 	.partners__container {
 		grid-template-columns: repeat(8, 1fr);
 		column-gap: 80px;
-		row-gap: 40px;
+		row-gap: 50px;
 	}
 
 	.parthners__wrapper:nth-child(9) {
@@ -133,6 +133,6 @@
 	.partners__title {
 		font-size: 48px;
 		line-height: 61px;
-		margin: 0 0 33px 0;
+		margin: 0 0 44px 0;
 	}
 }
