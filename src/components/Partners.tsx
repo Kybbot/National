@@ -112,7 +112,7 @@ export const Partners: FC<PartnersProps> = ({ language, translation }) => {
 							width="147"
 							height="191"
 							src="/img/partners/okko.png"
-							alt="Coa Gulant"
+							alt="Okko"
 							quality="100"
 						/>
 					</div>
