@@ -30,27 +30,27 @@ export const Footer: FC<FooterProps> = ({ language, translation, openModal }) =>
 									<ul className="footer__nav">
 										<li className="footer__elem">
 											<Link href="/aboutUs" className="footer__link" scroll={false}>
-												{translation["aboutUs"][language]}
+												{translation["navAboutUs"][language]}
 											</Link>
 										</li>
 										<li className="footer__elem">
 											<Link href="/aboutUs#history" className="footer__link" scroll={false}>
-												{translation["history"][language]}
+												{translation["navHistory"][language]}
 											</Link>
 										</li>
 										<li className="footer__elem">
 											<Link href="/aboutUs#values" className="footer__link" scroll={false}>
-												{translation["values"][language]}
+												{translation["navValues"][language]}
 											</Link>
 										</li>
 										<li className="footer__elem">
 											<Link href="/humanitarianSector" className="footer__link" scroll={false}>
-												{translation["humanitarianSector"][language]}
+												{translation["navHumanitarianSector"][language]}
 											</Link>
 										</li>
 										<li className="footer__elem">
 											<Link href="/aboutUs#team" className="footer__link" scroll={false}>
-												{translation["team"][language]}
+												{translation["navTeam"][language]}
 											</Link>
 										</li>
 									</ul>

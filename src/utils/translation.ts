@@ -103,6 +103,26 @@ export const translation: translationType = {
 		en: "Clients",
 		ua: "Клієнти",
 	},
+	navAboutUs: {
+		en: "About Us",
+		ua: "Про нас",
+	},
+	navHistory: {
+		en: "History",
+		ua: "Історія",
+	},
+	navValues: {
+		en: "Our values",
+		ua: "Наші цінності",
+	},
+	navHumanitarianSector: {
+		en: "Humanitarian sector",
+		ua: "Гуманітарний сектор",
+	},
+	navTeam: {
+		en: "Our team",
+		ua: "Наша команда",
+	},
 	navBtn: {
 		en: "УКР",
 		ua: "ENG",
@@ -203,26 +223,6 @@ export const translation: translationType = {
 		ua: "Поширити:",
 	},
 	// FOOTER
-	aboutUs: {
-		en: "About Us",
-		ua: "Про нас",
-	},
-	history: {
-		en: "History",
-		ua: "Історія",
-	},
-	values: {
-		en: "Our values",
-		ua: "Наші цінності",
-	},
-	humanitarianSector: {
-		en: "Humanitarian sector",
-		ua: "Гуманітарний сектор",
-	},
-	team: {
-		en: "Our team",
-		ua: "Наша команда",
-	},
 	checkCompany: {
 		en: "Check the company",
 		ua: "Перевірити компанію",
