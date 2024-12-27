@@ -14,7 +14,7 @@ export const Seo: FC<SeoProps> = ({
 }) => {
 	return (
 		<Head>
-			<title>National - українське контрактне виробництво</title>
+			<title>{title}</title>
 			<meta name="description" content={description} />
 
 			<meta property="og:type" content="website" />
